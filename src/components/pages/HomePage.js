@@ -10,7 +10,6 @@ const HomePage = () => {
       <Popup />
       <Body>
         <Shrink>
-          asdasfffasf
           <Hightlight>
             <HomePanel />
             <TrendingPanel />
