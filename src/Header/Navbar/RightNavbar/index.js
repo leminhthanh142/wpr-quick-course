@@ -1,16 +1,27 @@
+import React from 'react';
 import styled from "styled-components";
 
 export const RightNavbar = () => {
     return (
         <>
             {RightNavbarData.map((item, index) => (
-                <RightNavbarItems key={index}>
+                <RightNavbarItems key={index} className={item.className}>
                     <ItemLink
                         key={index}
                         href={item.url}
                     >
                         {item.text}
                     </ItemLink>
+                    {item.className && <NotificationContainer className="notification-container">
+                        <NotificationHeader>
+                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt=""/>
+                            <p>Đăng nhập để xem Thông báo</p>
+                        </NotificationHeader>
+                        <ButtonContainer>
+                            <Button>Đăng ký</Button>
+                            <Button>Đăng nhập</Button>
+                        </ButtonContainer>
+                    </NotificationContainer>}
                 </RightNavbarItems>
             ))}
         </>
@@ -19,6 +30,7 @@ export const RightNavbar = () => {
 
 const RightNavbarData = [
     {
+        className: 'notification',
         text: 'Thông Báo'
     },
     {
@@ -33,10 +45,67 @@ const RightNavbarData = [
     }
 ]
 
+const NotificationContainer = styled.div`
+    width: 400px;
+    height: 360px;
+    background: #fff;
+    position: absolute;
+    top: 118%;
+    right: 0;
+    cursor: pointer;
+    z-index: 999;
+    display: none;
+
+    &::before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -10px;
+        height: 18px;
+        cursor: pointer;
+    }  
+`
+
+const NotificationHeader = styled.div`
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 30%;
+    }
+`
+
+const ButtonContainer = styled.div`
+    height: 40px;
+    display: flex;
+`
+
+const Button = styled.button`
+    border: none;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+    background-color: #f5f5f5;
+
+    &:hover {
+        background-color: #eee;
+        color: #ee4d2d;
+        cursor: pointer;
+    }
+`
+
 const RightNavbarItems = styled.li`
     position: relative;
     display: inline-block;
     margin: 0 8px;
+
+    &.notification:hover .notification-container {
+        display: block;
+    }
 `
 
 const ItemLink = styled.a`

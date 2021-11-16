@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 
 export const LeftNavbar = () => {
@@ -73,6 +74,7 @@ const QRContainer = styled.div`
     border-radius: 2px;
     display: none;
     cursor: pointer;
+    z-index: 999;
     
     &::before {
         content: '';
