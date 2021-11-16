@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-const AdPanel = () => {
+import React from 'react';
+import styled from 'styled-components';
+
+const AdPanel = function () {
   return (
     <Container>
       <a href="https://www.google.com.vn/">
@@ -9,7 +10,7 @@ const AdPanel = () => {
           alt="poster"
         />
       </a>
-      <div className="overlay"></div>
+      <div className="overlay" />
     </Container>
   );
 };

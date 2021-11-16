@@ -1,8 +1,9 @@
-import styled from "styled-components";
-import React from "react";
-import Slider from "../organisms/Slider";
-import SalesPanel from "../organisms/SalesPanel";
-const HomePanel = () => {
+import styled from 'styled-components';
+import React from 'react';
+import Slider from '../organisms/Slider';
+import SalesPanel from '../organisms/SalesPanel';
+
+const HomePanel = function () {
   return (
     <Container>
       <Slider />

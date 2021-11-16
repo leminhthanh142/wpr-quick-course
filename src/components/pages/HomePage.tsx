@@ -1,10 +1,12 @@
-import styled from "styled-components";
-import Popup from "../atoms/PopupAd";
-import AdPanel from "../organisms/AdPanel";
-import ProductCatagory from "../organisms/Catagory";
-import TrendingPanel from "../organisms/TrendingPanel";
-import HomePanel from "../templates/HomePanel";
-const HomePage = () => {
+import React from 'react';
+import styled from 'styled-components';
+import Popup from '../atoms/PopupAd';
+import AdPanel from '../organisms/AdPanel';
+import ProductCatagory from '../organisms/Catagory';
+import TrendingPanel from '../organisms/TrendingPanel';
+import HomePanel from '../templates/HomePanel';
+
+const HomePage = function () {
   return (
     <>
       <Popup />

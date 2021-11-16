@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import Poster from "../atoms/Poster";
-const SalesPanel = (props) => {
+import React from 'react';
+import styled from 'styled-components';
+import Poster from '../atoms/Poster';
+
+const SalesPanel = function (props) {
   return (
     <Container>
       <Poster

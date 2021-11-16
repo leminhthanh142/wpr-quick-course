@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-const Popup = () => {
-  return <Ad></Ad>;
+import React from 'react';
+import styled from 'styled-components';
+
+const Popup = function () {
+  return <Ad />;
 };
 const Ad = styled.a`
   position: fixed;
@@ -11,7 +12,7 @@ const Ad = styled.a`
   right: 25px;
   width: 82px;
   height: 82px;
-  @media:max-width (768px) {
+  @media max-width (768px) {
     bottom: 60px;
   }
 `;
