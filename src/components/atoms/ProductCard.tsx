@@ -1,20 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components/macro";
 
-const ProductCard = function (props) {
-  return (
-    <Container imgSize={props.imgSize} border={props.border}>
-      <a href={props.PageLink}>
-        <img src={props.imgLink} alt="card" />
-        <p>{props.content}</p>
-      </a>
-    </Container>
-  );
-};
-export default ProductCard;
-const Container = styled.div`
+type ProductCardProps = {
+  imgSize: string,
+  border?: string
+  pageLink: string
+  imgLink: string
+  content: string
+}
+
+export const ProductCard = ({
+  imgLink, imgSize, content, pageLink, border,
+}: ProductCardProps) => (
+  <Container imgSize={imgSize} border={border}>
+    <a href={pageLink}>
+      <img src={imgLink} alt="card" />
+      <p>{content}</p>
+    </a>
+  </Container>
+);
+
+const Container = styled.div<{border?: string, imgSize: string}>`
   flex: 1;
-  border: ${(props) => props.border || 'none'};
+  border: ${(props) => props.border || "none"};
   & a {
     text-decoration: none;
     color: black;

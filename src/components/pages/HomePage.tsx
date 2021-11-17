@@ -1,29 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import Popup from '../atoms/PopupAd';
-import AdPanel from '../organisms/AdPanel';
-import ProductCatagory from '../organisms/Catagory';
-import TrendingPanel from '../organisms/TrendingPanel';
-import HomePanel from '../templates/HomePanel';
+import React from "react";
+import styled from "styled-components/macro";
+import Popup from "../atoms/PopupAd";
+import AdPanel from "../organisms/AdPanel";
+import { ProductCategory } from "../organisms/Catagory";
+import TrendingPanel from "../organisms/TrendingPanel";
+import { HomePanel } from "../templates/HomePanel";
 
-const HomePage = function () {
-  return (
-    <>
-      <Popup />
-      <Body>
-        <Shrink>
-          <Hightlight>
-            <HomePanel />
-            <TrendingPanel />
-          </Hightlight>
-          <AdPanel />
-          <ProductCatagory />
-        </Shrink>
-      </Body>
-    </>
-  );
-};
-export default HomePage;
+export const HomePage = () => (
+  <>
+    <Popup />
+    <Body>
+      <Shrink>
+        <Hightlight>
+          <HomePanel />
+          <TrendingPanel />
+        </Hightlight>
+        <AdPanel />
+        <ProductCategory />
+      </Shrink>
+    </Body>
+  </>
+);
 const Hightlight = styled.div`
   background: white;
   padding: 30px 10px 0 10px; ;

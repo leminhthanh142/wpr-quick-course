@@ -1,21 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components/macro";
 
-const Poster = function (props) {
-  return (
-    <Container
-      margin={props.margin}
-      img={props.imgLink}
-      height={props.posterHeight}
-    >
-      <a href={props.directTo}>
-        <div className="overlay" />
-      </a>
-    </Container>
-  );
-};
-export default Poster;
-const Container = styled.div`
+type PosterProps = {
+  margin?: string
+  imgLink: string
+  posterHeight: string
+  directTo: string
+}
+
+export const Poster = ({
+  margin, imgLink, posterHeight, directTo,
+}: PosterProps) => (
+  <Container
+    margin={margin}
+    img={imgLink}
+    height={posterHeight}
+  >
+    <a href={directTo}>
+      <div className="overlay" />
+    </a>
+  </Container>
+);
+
+const Container = styled.div<{height: string, margin?: string, img: string}>`
   width: 100%;
   height: ${(props) => props.height};
   min-height: 50%;
