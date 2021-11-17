@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-const ProductCard = (props) => {
+import React from 'react';
+import styled from 'styled-components';
+
+const ProductCard = function (props) {
   return (
     <Container imgSize={props.imgSize} border={props.border}>
       <a href={props.PageLink}>
@@ -13,7 +14,7 @@ const ProductCard = (props) => {
 export default ProductCard;
 const Container = styled.div`
   flex: 1;
-  border: ${(props) => props.border || "none"};
+  border: ${(props) => props.border || 'none'};
   & a {
     text-decoration: none;
     color: black;

@@ -1,6 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-const Poster = (props) => {
+import React from 'react';
+import styled from 'styled-components';
+
+const Poster = function (props) {
   return (
     <Container
       margin={props.margin}
@@ -8,7 +9,7 @@ const Poster = (props) => {
       height={props.posterHeight}
     >
       <a href={props.directTo}>
-        <div className="overlay"></div>
+        <div className="overlay" />
       </a>
     </Container>
   );

@@ -1,10 +1,11 @@
-import React from "react";
-import leftArrow from "../sources/left-arrow.png";
-import rightArrow from "../sources/right-arrow.png";
-let scrollState = document.querySelector(".preventHidden");
-const prevBtn = document.querySelector(".cata-btn.btn-prev");
-const nextBtn = document.querySelector(".cata-btn.btn-next");
-export const PrevButton = () => {
+import React from 'react';
+import leftArrow from '../sources/left-arrow.png';
+import rightArrow from '../sources/right-arrow.png';
+
+const scrollState = document.querySelector('.preventHidden');
+const prevBtn = document.querySelector('.cata-btn.btn-prev');
+const nextBtn = document.querySelector('.cata-btn.btn-next');
+export var PrevButton = function () {
   const scrollLeft = () => {
     scrollState.scrollLeft = 0;
     prevBtn.style.opacity = 0;
@@ -16,7 +17,7 @@ export const PrevButton = () => {
     </div>
   );
 };
-export const NextButton = () => {
+export var NextButton = function () {
   const scrollRight = () => {
     scrollState.scrollLeft = scrollState.scrollWidth;
     nextBtn.style.opacity = 0;
