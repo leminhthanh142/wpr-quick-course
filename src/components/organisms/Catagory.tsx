@@ -1,29 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { ProductCard } from "../atoms/ProductCard";
-import { PrevButton, NextButton } from "../atoms/Buttons";
+import Button from "../atoms/Buttons";
 
-export const ProductCategory = () => (
-  <Container className="catagory">
-    <div className="preventHidden">
-      <PrevButton />
-      <NextButton />
-      <p className="title">DANH MỤC</p>
-      <Grid>
-        {DATAs.map((data, i) => (
-          <ProductCard
-            border="0.5px solid #eee"
-            key={i}
-            imgSize="84px"
-            pageLink={data.pageLink}
-            imgLink={data.imgLink}
-            content={data.content}
-          />
-        ))}
-      </Grid>
-    </div>
-  </Container>
-);
+export const ProductCategory = () => {
+  const [onPrev, setOnPrev] = useState(true);
+  const scrollLeft = () => {
+    const slider = document.querySelector(".preventHidden");
+    slider!.scrollLeft = 0;
+    setOnPrev(true);
+  };
+  const scrollRight = () => {
+    const slider = document.querySelector(".preventHidden");
+    slider!.scrollLeft = slider!.scrollWidth;
+    setOnPrev(false);
+  };
+  useEffect(() => {
+    const prevBtn = document.querySelector(".btn-left.btn");
+    const nextBtn = document.querySelector(".btn-right.btn");
+    // eslint-disable-next-line no-unused-expressions
+    if (onPrev) {
+      prevBtn!.setAttribute("style", "opacity: 0");
+      nextBtn!.setAttribute("style", "opacity: 1");
+    } else {
+      prevBtn!.setAttribute("style", "opacity: 1");
+      nextBtn!.setAttribute("style", "opacity: 0");
+    }
+  });
+  return (
+    <Container className="catagory">
+      <div className="preventHidden">
+        <Button
+          onClick={scrollLeft}
+          className="btn-left btn"
+          isPrevButton
+          position="0"
+        />
+        <Button
+          onClick={scrollRight}
+          className="btn-right btn"
+          isPrevButton={false}
+          position="100%"
+        />
+        <p className="title">DANH MỤC</p>
+        <Grid>
+          {DATAs.map((data, i) => (
+            <ProductCard
+              border="0.5px solid #eee"
+              key={i}
+              imgSize="84px"
+              pageLink={data.pageLink}
+              imgLink={data.imgLink}
+              content={data.content}
+            />
+          ))}
+        </Grid>
+      </div>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   position: relative;
@@ -37,6 +72,18 @@ const Container = styled.div`
   }
   & .preventHidden {
     overflow-x: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &:hover .btn {
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%, 0);
+    svg {
+      height: 1em;
+      width: 1em;
+    }
   }
 `;
 const Grid = styled.div`

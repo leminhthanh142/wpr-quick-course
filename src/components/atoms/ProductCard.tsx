@@ -2,15 +2,19 @@ import React from "react";
 import styled from "styled-components/macro";
 
 type ProductCardProps = {
-  imgSize: string,
-  border?: string
-  pageLink: string
-  imgLink: string
-  content: string
-}
+  imgSize: string;
+  border?: string;
+  pageLink: string;
+  imgLink: string;
+  content: string;
+};
 
 export const ProductCard = ({
-  imgLink, imgSize, content, pageLink, border,
+  imgLink,
+  imgSize,
+  content,
+  pageLink,
+  border,
 }: ProductCardProps) => (
   <Container imgSize={imgSize} border={border}>
     <a href={pageLink}>
@@ -20,7 +24,7 @@ export const ProductCard = ({
   </Container>
 );
 
-const Container = styled.div<{border?: string, imgSize: string}>`
+const Container = styled.div<{ border?: string; imgSize: string }>`
   flex: 1;
   border: ${(props) => props.border || "none"};
   & a {

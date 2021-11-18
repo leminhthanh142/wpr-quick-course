@@ -1,36 +1,42 @@
 import React from "react";
-import leftArrow from "../sources/left-arrow.png";
-import rightArrow from "../sources/right-arrow.png";
+import styled from "styled-components/macro";
+import LeftArrow from "../sources/LeftArrow";
+import RightArrow from "../sources/RightArrow";
 
-const scrollState = document.querySelector(".preventHidden");
-const prevBtn = document.querySelector(".cata-btn.btn-prev");
-const nextBtn = document.querySelector(".cata-btn.btn-next");
-
-export const PrevButton = () => {
-  const scrollLeft = () => {
-    if (!scrollState || !prevBtn || !nextBtn) return;
-    console.log(prevBtn);
-    console.log(nextBtn);
-    scrollState.scrollLeft = 0;
-    // prevBtn.style.opacity = 0;
-    // nextBtn.style.opacity = 1;
-  };
-  return (
-    <div onClick={scrollLeft} className="cata-btn btn-prev">
-      <img src={leftArrow} alt="prev button" />
-    </div>
-  );
-};
-export const NextButton = () => {
-  const scrollRight = () => {
-    if (!scrollState || !prevBtn || !nextBtn) return;
-    scrollState.scrollLeft = scrollState.scrollWidth;
-    // nextBtn.style.opacity = 0;
-    // prevBtn.style.opacity = 1;
-  };
-  return (
-    <div onClick={scrollRight} className="cata-btn btn-next">
-      <img src={rightArrow} alt="next button" />
-    </div>
-  );
-};
+interface ButtonProps {
+  isPrevButton: boolean;
+  position: string;
+  className?: string;
+  onClick?: any;
+}
+const Button: React.FC<ButtonProps> = ({
+  className,
+  position,
+  isPrevButton,
+  onClick,
+}) => (
+  <Btn onClick={onClick} className={className} position={position}>
+    {isPrevButton ? <LeftArrow /> : <RightArrow />}
+  </Btn>
+);
+const Btn = styled.div<{ position: string }>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: gray;
+  opacity: 1;
+  visibility: visible;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 12px 0px;
+  transition: 0.2s ease;
+  left: ${(props) => props.position};
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+`;
+export default Button;

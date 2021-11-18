@@ -6,7 +6,6 @@ import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-
 import { Poster } from "../atoms/Poster";
 
 const IMAGES = [

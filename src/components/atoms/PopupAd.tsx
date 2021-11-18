@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+const Popup = () => <Ad />;
 const Ad = styled.a`
   position: fixed;
   display: inline-block;
@@ -9,13 +10,9 @@ const Ad = styled.a`
   right: 35px;
   width: 82px;
   height: 82px;
+  z-index: 10;
   @media (max-width: 768px) {
     bottom: 60px;
   }
 `;
-
-const Popup = function () {
-  return <Ad />;
-};
-
 export default Popup;

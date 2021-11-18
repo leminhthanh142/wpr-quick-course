@@ -44,21 +44,19 @@ const DATAs = [
     content: "Shopee Premium",
   },
 ];
-const TrendingPanel = function () {
-  return (
-    <Trendings>
-      {DATAs.map((data, i) => (
-        <ProductCard
-          key={i}
-          imgSize="50px"
-          pageLink={data.pageLink}
-          imgLink={data.imgLink}
-          content={data.content}
-        />
-      ))}
-    </Trendings>
-  );
-};
+const TrendingPanel = () => (
+  <Trendings>
+    {DATAs.map((data, i) => (
+      <ProductCard
+        key={i}
+        imgSize="50px"
+        pageLink={data.pageLink}
+        imgLink={data.imgLink}
+        content={data.content}
+      />
+    ))}
+  </Trendings>
+);
 export default TrendingPanel;
 const Trendings = styled.div`
   display: flex;
