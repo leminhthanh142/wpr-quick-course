@@ -14,7 +14,7 @@ export const RightNavbar = () => {
                     </ItemLink>
                     {item.className && <NotificationContainer className="notification-container">
                         <NotificationHeader>
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt=""/>
+                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="" />
                             <p>Đăng nhập để xem Thông báo</p>
                         </NotificationHeader>
                         <ButtonContainer>
@@ -46,14 +46,15 @@ const RightNavbarData = [
 ]
 
 const NotificationContainer = styled.div`
+    position: absolute;
+    background: #fff;
     width: 400px;
     height: 360px;
-    background: #fff;
-    position: absolute;
     top: 118%;
     right: 0;
-    cursor: pointer;
     z-index: 999;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
     display: none;
 
     &::before {

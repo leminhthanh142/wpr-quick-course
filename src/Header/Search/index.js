@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { Logo } from '../../components/Logo';
 import { IconSearch } from '../../components/Icons/IconSearch';
+import { IconCart } from '../../components/Icons/IconCart';
 
 export const Search = () => {
     return (
         <HeaderSearch>
             <LogoWrapper>
-                <a href="https://shopee.vn/"><Logo /></a>
+                <a href="https://shopee.vn/">
+                    <Logo />
+                </a>
             </LogoWrapper>
             <SearchBar>
                 <Input placeholder="Nhập để tìm kiếm sản phẩm" />
@@ -14,7 +17,12 @@ export const Search = () => {
                     <IconSearch />
                 </IconSearchWrapper>
             </SearchBar>
-            <Cart>Icon giỏ hàng</Cart>
+            <CartContainer>
+                <IconCart />
+                <Items>
+                    <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png" alt="" />
+                    <p>Chưa Có Sản Phẩm</p></Items>
+            </CartContainer>
         </HeaderSearch>
     );
 }
@@ -63,7 +71,45 @@ const IconSearchWrapper = styled.div`
     }
 `
 
-const Cart = styled.div`
-    width: 150px;
+const Items = styled.div`
+    display: none;
+    width: 400px;
+    height: 140px;
+    position: absolute;
+    border-radius: 2px;
+    background-color: #fff;
+    padding: 60px 0;
+    top: 118%;
+    right: 40%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     text-align: center;
+    
+    img {
+        width: 25%;
+    }
+    
+    `
+
+const CartContainer = styled.div`
+    position: relative;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16px;
+    
+    &::before {
+        content: '';
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        height: 18px;
+        cursor: pointer;
+    }  
+    
+    &:hover ${Items} {
+        display: block;
+    }
 `
