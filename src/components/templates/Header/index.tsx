@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Navbar } from "../UI/organisms/NavBar";
-import { Search } from "../UI/mocules/SearchBox";
+import { Navbar } from "../../UI/organisms/NavBar";
+import { Search } from "../../UI/mocules/SearchBox";
 
-const Header = () => (
+export const Header = () => (
   <HeaderStyle>
     <Grid>
       <Navbar />
@@ -22,5 +22,3 @@ const Grid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 `;
-
-export default Header;

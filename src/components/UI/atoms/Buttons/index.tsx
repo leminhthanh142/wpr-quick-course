@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import LeftArrow from "../../sources/LeftArrow";
-import RightArrow from "../../sources/RightArrow";
+import LeftArrow from "../../../sources/LeftArrow";
+import RightArrow from "../../../sources/RightArrow";
 
 interface ButtonProps {
   isPrevButton: boolean;
@@ -33,7 +33,7 @@ const Btn = styled.div<{ position: string }>`
   height: 30px;
   font-size: 20px;
   border-radius: 50%;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 12px 0px;
+  box-shadow: rgb(0 0 0 / 12%) 0 1px 12px 0;
   transition: 0.2s ease;
   left: ${(props) => props.position};
   transform: translate(-50%, 50%);
