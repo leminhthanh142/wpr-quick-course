@@ -1,19 +1,17 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-const AdPanel = function () {
-  return (
-    <Container>
-      <a href="https://www.google.com.vn/">
-        <img
-          src="https://cf.shopee.sg/file/204ca3ec83981dbfa455adbe11776a1c"
-          alt="poster"
-        />
-      </a>
-      <div className="overlay" />
-    </Container>
-  );
-};
+const AdPanel = () => (
+  <Container>
+    <a href="https://www.google.com.vn/">
+      <img
+        src="https://cf.shopee.sg/file/204ca3ec83981dbfa455adbe11776a1c"
+        alt="poster"
+      />
+    </a>
+    <div className="overlay" />
+  </Container>
+);
 export default AdPanel;
 const Container = styled.div`
   width: 100%;

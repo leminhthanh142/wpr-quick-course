@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components/macro";
 import Popup from "../atoms/PopupAd";
 import AdPanel from "../organisms/AdPanel";
-import { ProductCategory } from "../organisms/Catagory";
+import { Catagories } from "../templates/Catagories";
 import TrendingPanel from "../organisms/TrendingPanel";
 import { HomePanel } from "../templates/HomePanel";
+import { FlashSalePanel } from "../templates/FlashSale";
 
 export const HomePage = () => (
   <>
@@ -16,7 +17,8 @@ export const HomePage = () => (
           <TrendingPanel />
         </Hightlight>
         <AdPanel />
-        <ProductCategory />
+        <Catagories />
+        <FlashSalePanel />
       </Shrink>
     </Body>
   </>
@@ -34,5 +36,4 @@ const Shrink = styled.div`
 const Body = styled.div`
   display: flex;
   justify-content: center;
-  flex-dirention: column;
 `;

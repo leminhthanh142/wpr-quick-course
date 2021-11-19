@@ -18,36 +18,34 @@ const IMAGES = [
   "https://cf.shopee.sg/file/75e4697902a688cacf4ee548cabb0225_xxhdpi",
 ];
 SwiperCore.use([Autoplay, Pagination, Navigation]);
-const Slider = function () {
-  return (
-    <Container>
-      <Swiper
-        loop
-        spaceBetween={30}
-        centeredSlides
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation
-        className="mySwiper"
-      >
-        {IMAGES.map((img, i) => (
-          <SwiperSlide key={i}>
-            <Poster
-              directTo="https://www.google.com.vn/"
-              imgLink={img}
-              posterHeight="100%"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Container>
-  );
-};
+const Slider = () => (
+  <Container>
+    <Swiper
+      loop
+      spaceBetween={30}
+      centeredSlides
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation
+      className="mySwiper"
+    >
+      {IMAGES.map((img, i) => (
+        <SwiperSlide key={i}>
+          <Poster
+            directTo="https://www.google.com.vn/"
+            imgLink={img}
+            posterHeight="100%"
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </Container>
+);
 export default Slider;
 const Container = styled.div`
   flex: 2;

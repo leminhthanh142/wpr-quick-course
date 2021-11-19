@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import { ProductCard } from "../atoms/ProductCard";
+import { ProductCard } from "../organisms/ProductCard";
 import Button from "../atoms/Buttons";
 
-export const ProductCategory = () => {
+export const Catagories = () => {
   const [onPrev, setOnPrev] = useState(true);
   const scrollLeft = () => {
-    const slider = document.querySelector(".preventHidden");
+    const slider = document.querySelector(".catagoryScrolHidden");
     slider!.scrollLeft = 0;
     setOnPrev(true);
   };
   const scrollRight = () => {
-    const slider = document.querySelector(".preventHidden");
+    const slider = document.querySelector(".catagoryScrolHidden");
     slider!.scrollLeft = slider!.scrollWidth;
     setOnPrev(false);
   };
   useEffect(() => {
     const prevBtn = document.querySelector(".btn-left.btn");
     const nextBtn = document.querySelector(".btn-right.btn");
-    // eslint-disable-next-line no-unused-expressions
     if (onPrev) {
       prevBtn!.setAttribute("style", "opacity: 0");
       nextBtn!.setAttribute("style", "opacity: 1");
@@ -29,7 +28,8 @@ export const ProductCategory = () => {
   });
   return (
     <Container className="catagory">
-      <div className="preventHidden">
+      <p className="title">DANH MỤC</p>
+      <div className="catagoryScrolHidden">
         <Button
           onClick={scrollLeft}
           className="btn-left btn"
@@ -42,7 +42,6 @@ export const ProductCategory = () => {
           isPrevButton={false}
           position="100%"
         />
-        <p className="title">DANH MỤC</p>
         <Grid>
           {DATAs.map((data, i) => (
             <ProductCard
@@ -70,7 +69,7 @@ const Container = styled.div`
     color: gray;
     padding: 20px;
   }
-  & .preventHidden {
+  & .catagoryScrolHidden {
     overflow-x: scroll;
     ::-webkit-scrollbar {
       display: none;

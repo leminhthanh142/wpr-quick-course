@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 import React from "react";
-import Slider from "../organisms/Slider";
+import Slider from "../organisms/PanelSlider";
 import { SalesPanel } from "../organisms/SalesPanel";
 
 export const HomePanel = () => (
