@@ -7,10 +7,12 @@ import TrendingPanel from "../UI/organisms/TrendingPanel";
 import { HomePanel } from "../UI/organisms/HomePanel";
 import { FlashSalePanel } from "../templates/FlashSale";
 import CompositeAds from "../UI/organisms/SecondaryAd";
+import Header from "../templates/Header";
 
 export const HomePage = () => (
   <>
     <Popup />
+    <Header />
     <Body>
       <Shrink>
         <Hightlight>
@@ -27,7 +29,7 @@ export const HomePage = () => (
 );
 const Hightlight = styled.div`
   background: white;
-  padding: 30px 10px 0 10px; ;
+  padding: 30px 10px 0 10px; 
 `;
 const Shrink = styled.div`
   width: 75%;

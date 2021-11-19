@@ -3,21 +3,17 @@ import styled from "styled-components";
 import { LeftNavbar } from "../mocules/LeftNavBar";
 import { RightNavbar } from "../mocules/RightNavBar";
 
-export const Navbar = () => {
-  return (
-    <>
-      <Nav>
-        <NavbarList>
-          <LeftNavbar />
-        </NavbarList>
+export const Navbar = () => (
+  <Nav>
+    <NavbarList>
+      <LeftNavbar />
+    </NavbarList>
 
-        <NavbarList>
-          <RightNavbar />
-        </NavbarList>
-      </Nav>
-    </>
-  );
-};
+    <NavbarList>
+      <RightNavbar />
+    </NavbarList>
+  </Nav>
+);
 
 const Nav = styled.nav`
   display: flex;
