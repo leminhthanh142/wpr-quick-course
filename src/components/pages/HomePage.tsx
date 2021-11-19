@@ -7,7 +7,7 @@ import TrendingPanel from "../UI/organisms/TrendingPanel";
 import { HomePanel } from "../UI/organisms/HomePanel";
 import { FlashSalePanel } from "../templates/FlashSale";
 import CompositeAds from "../UI/organisms/SecondaryAd";
-import Header from "../templates/Header";
+import { Header } from "../templates/Header";
 
 export const HomePage = () => (
   <>

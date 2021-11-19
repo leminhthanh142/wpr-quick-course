@@ -1,32 +1,58 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled from "styled-components/macro";
+import { Modal } from "./modal";
 
-export const RightNavbar = () => (
-  <>
-    {RightNavbarData.map((item, index) => (
-      <RightNavbarItems key={index} className={item.className}>
-        <ItemLink
-          key={index}
-          href={item.url}
-        >
-          {item.text}
-        </ItemLink>
-        {item.className && (
-        <NotificationContainer className="notification-container">
-          <NotificationHeader>
-            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="" />
-            <p>Đăng nhập để xem Thông báo</p>
-          </NotificationHeader>
-          <ButtonContainer>
-            <Button>Đăng ký</Button>
-            <Button>Đăng nhập</Button>
-          </ButtonContainer>
-        </NotificationContainer>
-        )}
-      </RightNavbarItems>
-    ))}
-  </>
-);
+// viết kiểu này thì đoạn nó click đki đăng nhập kiểu gì?
+export const RightNavbar = () => {
+  const [show, setShow] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>("");
+
+  const handleCloseModal = () => {
+    setShow(false);
+  };
+  return (
+    <>
+      {RightNavbarData.map((item, index) => (
+        <RightNavbarItems key={index} className={item.className}>
+          <ItemLink
+            key={index}
+            href={item.url}
+          >
+            {item.text}
+          </ItemLink>
+          {item.className && (
+          <NotificationContainer className="notification-container">
+            <NotificationHeader>
+              <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="" />
+              <p>Đăng nhập để xem Thông báo</p>
+            </NotificationHeader>
+            <ButtonContainer>
+              <Button onClick={() => {
+                setShow(true);
+                setTitle("Sign Up Form");
+              }}
+              >
+                Đăng ký
+              </Button>
+              <Button onClick={() => {
+                setShow(true);
+                setTitle("Login Form");
+              }}
+              >
+                Đăng nhập
+              </Button>
+            </ButtonContainer>
+          </NotificationContainer>
+          )}
+        </RightNavbarItems>
+      ))}
+      <Modal show={show} title={title} onClose={handleCloseModal}>
+        <input type="text" />
+        <input type="password" />
+      </Modal>
+    </>
+  );
+};
 
 const RightNavbarData = [
   {
