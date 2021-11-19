@@ -1,11 +1,11 @@
 import styled from "styled-components/macro";
 import React from "react";
-import Slider from "../organisms/PanelSlider";
-import { SalesPanel } from "../organisms/SalesPanel";
+import EventSlider from "../mocules/EventSlider";
+import { SalesPanel } from "./SalesPanel";
 
 export const HomePanel = () => (
   <Container>
-    <Slider />
+    <EventSlider />
     <SalesPanel />
   </Container>
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import LeftArrow from "../sources/LeftArrow";
-import RightArrow from "../sources/RightArrow";
+import LeftArrow from "../../sources/LeftArrow";
+import RightArrow from "../../sources/RightArrow";
 
 interface ButtonProps {
   isPrevButton: boolean;

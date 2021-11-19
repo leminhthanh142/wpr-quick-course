@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 import React from "react";
 import styled from "styled-components";
 import DiscountTag from "../atoms/DiscountTag";
@@ -56,6 +55,9 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
     .discount-overlay {
       position: absolute;
       z-index: 2;
+      left: 50%;
+      width: 173px;
+      height: 173px;
       transform: translateX(-50%);
       background-image: ${(props) => `url(${props.discountImg})`};
       background-size: contain;

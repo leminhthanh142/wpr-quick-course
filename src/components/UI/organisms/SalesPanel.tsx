@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Poster } from "../atoms/Poster";
+import { Poster } from "../mocules/Poster";
 
 export const SalesPanel = () => (
   <Container>

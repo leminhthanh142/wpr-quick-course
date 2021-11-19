@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../mocules/ProductCard";
 
 const DATAs = [
   {

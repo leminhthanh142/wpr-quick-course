@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { nanoid } from "nanoid";
-import Button from "../atoms/Buttons";
-import FlashSaleCard from "../organisms/FSaleCard";
+import Button from "../UI/atoms/Buttons";
+import FlashSaleCard from "../UI/mocules/FSaleCard";
 
 export const FlashSalePanel = () => {
   const [onPrev, setOnPrev] = useState(true);
@@ -29,7 +29,9 @@ export const FlashSalePanel = () => {
   });
   return (
     <Container className="catagory">
-      <div className="title">DANH MỤC</div>
+      <div className="title">
+        <div className="flash-sale-title" />
+      </div>
       <div className="saleScrollBarHidden">
         <Button
           onClick={scrollLeft}
@@ -66,11 +68,25 @@ const Container = styled.div`
   background: white;
   margin-top: 20px;
   border-radius: 5px;
+  padding-bottom: 20px;
   & .title {
-    border-bottom: 1px solid #ddd;
-    font-size: 1em;
-    color: gray;
-    padding: 20px;
+    height: 60px;
+    line-height: 1.875rem;
+    padding: 15px;
+    position: relative;
+    display: inline-flex;
+    pointer-events: all;
+    .flash-sale-title {
+      padding-left: 16px;
+      width: 130px;
+      height: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      display: inline-block;
+      background: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/fb1088de81e42c4e538967ec12cb5caa.png")
+        50% no-repeat;
+      background-size: contain;
+    }
   }
   & .saleScrollBarHidden {
     overflow-x: scroll;
@@ -96,6 +112,7 @@ const Grid = styled.div<{ columns: number }>`
   grid-template-columns: ${(props) => `repeat(${props.columns}, 205px)`};
   grid-template-rows: 240px;
   gap: 0 5px;
+  border-top: 1px solid #eee;
 `;
 const DATAs = [
   {

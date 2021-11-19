@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Popup from "../atoms/PopupAd";
-import AdPanel from "../organisms/AdPanel";
+import Popup from "../UI/atoms/PopupAd";
+import AdPanel from "../UI/organisms/PrimaryAd";
 import { Catagories } from "../templates/Catagories";
-import TrendingPanel from "../organisms/TrendingPanel";
-import { HomePanel } from "../templates/HomePanel";
+import TrendingPanel from "../UI/organisms/TrendingPanel";
+import { HomePanel } from "../UI/organisms/HomePanel";
 import { FlashSalePanel } from "../templates/FlashSale";
+import CompositeAds from "../UI/organisms/SecondaryAd";
 
 export const HomePage = () => (
   <>
@@ -19,6 +20,7 @@ export const HomePage = () => (
         <AdPanel />
         <Catagories />
         <FlashSalePanel />
+        <CompositeAds />
       </Shrink>
     </Body>
   </>
@@ -36,4 +38,6 @@ const Shrink = styled.div`
 const Body = styled.div`
   display: flex;
   justify-content: center;
+  background: url("https://cf.shopee.vn/file/3d8d18abbf445264d2b06638653b364c")
+    center top / 100% no-repeat;
 `;
