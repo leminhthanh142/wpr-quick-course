@@ -3,16 +3,14 @@ import styled from "styled-components";
 import { Navbar } from "../UI/organisms/NavBar";
 import { Search } from "../UI/mocules/SearchBox";
 
-const Header = () => {
-  return (
-    <HeaderStyle>
-      <Grid>
-        <Navbar />
-        <Search />
-      </Grid>
-    </HeaderStyle>
-  );
-};
+const Header = () => (
+  <HeaderStyle>
+    <Grid>
+      <Navbar />
+      <Search />
+    </Grid>
+  </HeaderStyle>
+);
 
 const HeaderStyle = styled.header`
   height: 120px;

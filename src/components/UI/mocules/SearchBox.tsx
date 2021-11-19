@@ -1,35 +1,34 @@
+import React from "react";
 import styled from "styled-components";
 import { Logo } from "../../sources/Logo";
 import { IconSearch } from "../../sources/IconSearch";
 import { IconCart } from "../../sources/IconCart";
 
-export const Search = () => {
-  return (
-    <HeaderSearch>
-      <LogoWrapper>
-        <a href="https://shopee.vn/">
-          <Logo />
-        </a>
-      </LogoWrapper>
-      <SearchBar>
-        <Input placeholder="Nhập để tìm kiếm sản phẩm" />
-        <IconSearchWrapper>
-          <IconSearch />
-        </IconSearchWrapper>
-      </SearchBar>
-      <CartContainer>
-        <IconCart />
-        <Items>
-          <img
-            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png"
-            alt=""
-          />
-          <p>Chưa Có Sản Phẩm</p>
-        </Items>
-      </CartContainer>
-    </HeaderSearch>
-  );
-};
+export const Search = () => (
+  <HeaderSearch>
+    <LogoWrapper>
+      <a href="https://shopee.vn/">
+        <Logo />
+      </a>
+    </LogoWrapper>
+    <SearchBar>
+      <Input placeholder="Nhập để tìm kiếm sản phẩm" />
+      <IconSearchWrapper>
+        <IconSearch />
+      </IconSearchWrapper>
+    </SearchBar>
+    <CartContainer>
+      <IconCart />
+      <Items>
+        <img
+          src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png"
+          alt=""
+        />
+        <p>Chưa Có Sản Phẩm</p>
+      </Items>
+    </CartContainer>
+  </HeaderSearch>
+);
 
 const HeaderSearch = styled.div`
   display: flex;

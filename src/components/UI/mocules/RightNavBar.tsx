@@ -1,49 +1,49 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
-export const RightNavbar = () => {
-    return (
-        <>
-            {RightNavbarData.map((item, index) => (
-                <RightNavbarItems key={index} className={item.className}>
-                    <ItemLink
-                        key={index}
-                        href={item.url}
-                    >
-                        {item.text}
-                    </ItemLink>
-                    {item.className && <NotificationContainer className="notification-container">
-                        <NotificationHeader>
-                            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="" />
-                            <p>Đăng nhập để xem Thông báo</p>
-                        </NotificationHeader>
-                        <ButtonContainer>
-                            <Button>Đăng ký</Button>
-                            <Button>Đăng nhập</Button>
-                        </ButtonContainer>
-                    </NotificationContainer>}
-                </RightNavbarItems>
-            ))}
-        </>
-    );
-}
+export const RightNavbar = () => (
+  <>
+    {RightNavbarData.map((item, index) => (
+      <RightNavbarItems key={index} className={item.className}>
+        <ItemLink
+          key={index}
+          href={item.url}
+        >
+          {item.text}
+        </ItemLink>
+        {item.className && (
+        <NotificationContainer className="notification-container">
+          <NotificationHeader>
+            <img src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png" alt="" />
+            <p>Đăng nhập để xem Thông báo</p>
+          </NotificationHeader>
+          <ButtonContainer>
+            <Button>Đăng ký</Button>
+            <Button>Đăng nhập</Button>
+          </ButtonContainer>
+        </NotificationContainer>
+        )}
+      </RightNavbarItems>
+    ))}
+  </>
+);
 
 const RightNavbarData = [
-    {
-        className: 'notification',
-        text: 'Thông Báo'
-    },
-    {
-        url: 'https://help.shopee.vn',
-        text: 'Hỗ Trợ'
-    },
-    {
-        text: 'Đăng Ký'
-    },
-    {
-        text: 'Đăng Nhập'
-    }
-]
+  {
+    className: "notification",
+    text: "Thông Báo",
+  },
+  {
+    url: "https://help.shopee.vn",
+    text: "Hỗ Trợ",
+  },
+  {
+    text: "Đăng Ký",
+  },
+  {
+    text: "Đăng Nhập",
+  },
+];
 
 const NotificationContainer = styled.div`
     position: absolute;
@@ -66,7 +66,7 @@ const NotificationContainer = styled.div`
         height: 18px;
         cursor: pointer;
     }  
-`
+`;
 
 const NotificationHeader = styled.div`
     height: 320px;
@@ -78,12 +78,12 @@ const NotificationHeader = styled.div`
     img {
         width: 30%;
     }
-`
+`;
 
 const ButtonContainer = styled.div`
     height: 40px;
     display: flex;
-`
+`;
 
 const Button = styled.button`
     border: none;
@@ -97,7 +97,7 @@ const Button = styled.button`
         color: #ee4d2d;
         cursor: pointer;
     }
-`
+`;
 
 const RightNavbarItems = styled.li`
     position: relative;
@@ -107,7 +107,7 @@ const RightNavbarItems = styled.li`
     &.notification:hover .notification-container {
         display: block;
     }
-`
+`;
 
 const ItemLink = styled.a`
     font-family: 'Arial', sans-serif;
@@ -119,4 +119,4 @@ const ItemLink = styled.a`
     &:hover {
         color: rgba(255, 255, 255, 0.7);
     }
-`
+`;
