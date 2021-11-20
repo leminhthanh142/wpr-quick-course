@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components/macro";
 import { ProductCard } from "../UI/mocules/ProductCard";
 import Button from "../UI/atoms/Buttons";

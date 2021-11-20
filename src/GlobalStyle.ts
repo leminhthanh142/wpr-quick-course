@@ -1,4 +1,7 @@
-* {
+import { createGlobalStyle } from "styled-components/macro";
+
+export const GlobalStyle = createGlobalStyle`
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +13,12 @@ html {
   background: #eee;
   height: 200vh;
 }
-
+li{
+  list-style:none;
+}
+a{
+  text-decoration:none;
+}
 .swiper-container {
   height: 100%;
 }
@@ -23,3 +31,4 @@ html {
   justify-content: center;
   align-items: center;
 }
+`;

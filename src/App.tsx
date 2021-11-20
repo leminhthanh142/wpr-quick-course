@@ -1,18 +1,17 @@
 import React from "react";
-import "./App.css";
-import {
-  Switch, Route, BrowserRouter, Redirect,
-} from "react-router-dom";
-
+// eslint-disable-next-line object-curly-newline
+import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import { HomePage } from "./components/pages/HomePage";
+import { LoginPage } from "./components/pages/Login";
+import { GlobalStyle } from "./GlobalStyle";
 
 export const App = () => (
-  <div className="App">
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" component={HomePage} />
-        <Redirect from="*" to="/" />
-      </Switch>
-    </BrowserRouter>
-  </div>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/login" component={LoginPage} />
+      <Redirect from="*" to="/" />
+    </Switch>
+    <GlobalStyle />
+  </BrowserRouter>
 );

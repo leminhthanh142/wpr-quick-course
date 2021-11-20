@@ -1,91 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components/macro";
-import { Portal } from "../../portal";
-import { Modal } from "./modal";
+import { Link } from "react-router-dom";
 
-// viết kiểu này thì đoạn nó click đki đăng nhập kiểu gì?
-export const RightNavbar = () => {
-  const [show, setShow] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>("");
+export const RightNavbar = () => (
+  <RightNavbarItems>
+    <RightNavbarItems className="notification">
+      <StyledLink to="">Thông báo</StyledLink>
+      <NotificationContainer className="notification-container">
+        <NotificationHeader>
+          <img
+            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
+            alt=""
+          />
+          <p>Đăng nhập để xem Thông báo</p>
+        </NotificationHeader>
 
-  const handleCloseModal = () => {
-    setShow(false);
-  };
+        <ButtonContainer>
+          <Button>Đăng ký</Button>
 
-  return (
-    <>
-      <RightNavbarItems>
-        <RightNavbarItems className="notification">
-          <ItemLink href="">Thông báo</ItemLink>
-          <NotificationContainer className="notification-container">
-            <NotificationHeader>
-              <img
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
-                alt=""
-              />
-              <p>Đăng nhập để xem Thông báo</p>
-            </NotificationHeader>
+          <Button>Đăng nhập</Button>
+        </ButtonContainer>
+      </NotificationContainer>
+    </RightNavbarItems>
 
-            <ButtonContainer>
-              <Button
-                onClick={() => {
-                  setShow(true);
-                  setTitle("Sign Up Form");
-                }}
-              >
-                Đăng ký
-              </Button>
-
-              <Button
-                onClick={() => {
-                  setShow(true);
-                  setTitle("Login Form");
-                }}
-              >
-                Đăng nhập
-              </Button>
-            </ButtonContainer>
-          </NotificationContainer>
-        </RightNavbarItems>
-
-        <RightNavbarItems>
-          <ItemLink href="https://help.shopee.vn/vn/s/">Hỗ trợ</ItemLink>
-        </RightNavbarItems>
-        <RightNavbarItems>
-          <ItemLink
-            href=""
-            onClick={(e) => {
-              setShow(true);
-              setTitle("Sign In Form");
-              e.preventDefault();
-            }}
-          >
-            Đăng ký
-          </ItemLink>
-        </RightNavbarItems>
-        <RightNavbarItems>
-          <ItemLink
-            href=""
-            onClick={(e) => {
-              setShow(true);
-              setTitle("Sign Up Form");
-              e.preventDefault();
-            }}
-          >
-            Đăng nhập
-          </ItemLink>
-        </RightNavbarItems>
-      </RightNavbarItems>
-      <Portal>
-        <Modal show={show} title={title} onClose={handleCloseModal}>
-          <input type="text" placeholder="Số điện thoại" />
-          <input type="password" placeholder="Mật khẩu" />
-          <input type="password" placeholder="Nhập lại mật khẩu" />
-        </Modal>
-      </Portal>
-    </>
-  );
-};
+    <RightNavbarItems>
+      <StyledLink to="/support">Hỗ trợ</StyledLink>
+    </RightNavbarItems>
+    <RightNavbarItems>
+      <StyledLink to="/signup">Đăng ký</StyledLink>
+    </RightNavbarItems>
+    <RightNavbarItems>
+      <StyledLink to="/signin">Đăng nhập</StyledLink>
+    </RightNavbarItems>
+  </RightNavbarItems>
+);
 
 const fadeIn = keyframes`
     0% {
@@ -95,7 +43,17 @@ const fadeIn = keyframes`
         opacity: 1;
     }
 `;
+const StyledLink = styled(Link)`
+  font-family: "Arial", sans-serif;
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
 const NotificationContainer = styled.div`
   position: absolute;
   background: #fff;
@@ -158,17 +116,5 @@ const RightNavbarItems = styled.li`
 
   &.notification:hover .notification-container {
     display: block;
-  }
-`;
-
-const ItemLink = styled.a`
-  font-family: "Arial", sans-serif;
-  font-size: 13px;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.7);
   }
 `;

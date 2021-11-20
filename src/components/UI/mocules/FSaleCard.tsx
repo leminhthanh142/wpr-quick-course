@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import DiscountTag from "../atoms/DiscountTag";
 import { ProgressBar } from "../atoms/ProgressBar";
 
@@ -11,10 +11,7 @@ interface CardProps {
   productTotal: number;
   discount: number;
 }
-const formatPrice = (price: number) => {
-  const result = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return result;
-};
+
 const FlashSaleCard = ({
   imgLink,
   discountImg,
@@ -23,6 +20,10 @@ const FlashSaleCard = ({
   productTotal,
   discount,
 }: CardProps) => {
+  const formatPrice = (x: number) => {
+    const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return result;
+  };
   const formattedPrice = formatPrice(price);
   return (
     <Container productImg={imgLink} discountImg={discountImg}>

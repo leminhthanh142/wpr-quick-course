@@ -8,6 +8,7 @@ import { HomePanel } from "../UI/organisms/HomePanel";
 import { FlashSalePanel } from "../templates/FlashSale";
 import CompositeAds from "../UI/organisms/SecondaryAd";
 import { Header } from "../templates/Header";
+import { Footer } from "../templates/Footer";
 
 export const HomePage = () => (
   <>
@@ -25,6 +26,7 @@ export const HomePage = () => (
         <CompositeAds />
       </Shrink>
     </Body>
+    <Footer />
   </>
 );
 const Hightlight = styled.div`

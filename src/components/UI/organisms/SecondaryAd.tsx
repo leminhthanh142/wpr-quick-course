@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const imgLink = [
   "https://cf.shopee.vn/file/6cf0853b71846eb2ede920aad7d13bbc",
