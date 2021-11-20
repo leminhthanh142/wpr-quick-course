@@ -29,7 +29,7 @@ export const HomePage = () => (
 );
 const Hightlight = styled.div`
   background: white;
-  padding: 30px 10px 0 10px; 
+  padding: 30px 10px 0 10px;
 `;
 const Shrink = styled.div`
   width: 75%;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components/macro";
+import { Portal } from "../../portal";
 import { Modal } from "./modal";
 
 // viết kiểu này thì đoạn nó click đki đăng nhập kiểu gì?
@@ -75,12 +76,13 @@ export const RightNavbar = () => {
           </ItemLink>
         </RightNavbarItems>
       </RightNavbarItems>
-
-      <Modal show={show} title={title} onClose={handleCloseModal}>
-        <input type="text" placeholder="Số điện thoại" />
-        <input type="password" placeholder="Mật khẩu" />
-        <input type="password" placeholder="Nhập lại mật khẩu" />
-      </Modal>
+      <Portal>
+        <Modal show={show} title={title} onClose={handleCloseModal}>
+          <input type="text" placeholder="Số điện thoại" />
+          <input type="password" placeholder="Mật khẩu" />
+          <input type="password" placeholder="Nhập lại mật khẩu" />
+        </Modal>
+      </Portal>
     </>
   );
 };
