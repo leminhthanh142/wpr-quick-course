@@ -42,6 +42,7 @@ module.exports = {
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
+    "no-unused-vars": "off",
   },
   settings: {
     "import/parsers": {

@@ -1,91 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components/macro";
-import { Portal } from "../../portal";
-import { Modal } from "./modal";
+import { Link } from "react-router-dom";
 
-export const RightNavbar = () => {
-  const [show, setShow] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>("");
+export const RightNavbar = () => (
+  <RightNavbarItems>
+    <RightNavbarItems className="notification">
+      <ItemLink href="">Thông báo</ItemLink>
+      <NotificationContainer className="notification-container">
+        <NotificationHeader>
+          <img
+            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
+            alt=""
+          />
+          <p>Đăng nhập để xem Thông báo</p>
+        </NotificationHeader>
 
-  const handleCloseModal = () => {
-    setShow(false);
-  };
-
-  return (
-    <>
-      <RightNavbarItems>
-        <RightNavbarItems className="notification">
-          <ItemLink href="">Thông báo</ItemLink>
-          <NotificationContainer className="notification-container">
-            <NotificationHeader>
-              <img
-                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
-                alt=""
-              />
-              <p>Đăng nhập để xem Thông báo</p>
-            </NotificationHeader>
-
-            <ButtonContainer>
-              <Button
-                onClick={() => {
-                  setShow(true);
-                  setTitle("Sign Up Form");
-                }}
-              >
-                Đăng ký
-              </Button>
-
-              <Button
-                onClick={() => {
-                  setShow(true);
-                  setTitle("Login Form");
-                }}
-              >
-                Đăng nhập
-              </Button>
-            </ButtonContainer>
-          </NotificationContainer>
-        </RightNavbarItems>
-
-        <RightNavbarItems>
-          <ItemLink href="https://help.shopee.vn/vn/s/">Hỗ trợ</ItemLink>
-        </RightNavbarItems>
-        <RightNavbarItems>
-          <ItemLink
-            href=""
-            onClick={(e) => {
-              setShow(true);
-              setTitle("Sign Up Form");
-              e.preventDefault();
-            }}
-          >
+        <ButtonContainer>
+          <Button>
             Đăng ký
-          </ItemLink>
-        </RightNavbarItems>
-        <RightNavbarItems>
-          <ItemLink
-            href=""
-            onClick={(e) => {
-              setShow(true);
-              setTitle("Login Form");
-              e.preventDefault();
-            }}
-          >
-            Đăng nhập
-          </ItemLink>
-        </RightNavbarItems>
-      </RightNavbarItems>
+          </Button>
 
-      <Portal>
-        <Modal show={show} title={title} onClose={handleCloseModal}>
-          <input type="text" placeholder="Số điện thoại" />
-          <input type="password" placeholder="Mật khẩu" />
-          <input type="password" placeholder="Nhập lại mật khẩu" />
-        </Modal>
-      </Portal>
-    </>
-  );
-};
+          <Button>
+            Đăng nhập
+          </Button>
+        </ButtonContainer>
+      </NotificationContainer>
+    </RightNavbarItems>
+
+    <RightNavbarItems>
+      <ItemLink href="https://help.shopee.vn/vn/s/">Hỗ trợ</ItemLink>
+    </RightNavbarItems>
+    <RightNavbarItems>
+      <Link to="/login">
+        Đăng ký
+      </Link>
+    </RightNavbarItems>
+    <RightNavbarItems>
+      <ItemLink>
+        Đăng nhập
+      </ItemLink>
+    </RightNavbarItems>
+  </RightNavbarItems>
+);
 
 const fadeIn = keyframes`
     0% {
