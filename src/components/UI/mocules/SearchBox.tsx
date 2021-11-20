@@ -31,12 +31,12 @@ export const Search = () => (
 );
 
 const fadeIn = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
 
 const HeaderSearch = styled.div`
@@ -95,19 +95,10 @@ const Items = styled.div`
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
   z-index: 999;
-  animation: ${fadeIn} ease-in 0.3s;
+  animation: ${fadeIn} linear 0.3s;
 
   img {
     width: 25%;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `;
 
