@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import { Modal } from "./modal";
 
 // viết kiểu này thì đoạn nó click đki đăng nhập kiểu gì?
@@ -13,66 +13,86 @@ export const RightNavbar = () => {
 
   return (
     <>
-      {RightNavbarData.map((item, index) => (
-        <RightNavbarItems key={index} className={item.className}>
-          <ItemLink key={index} href={item.url}>
-            {item.text}
-          </ItemLink>
-          {item.className && (
-            <NotificationContainer className="notification-container">
-              <NotificationHeader>
-                <img
-                  src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
-                  alt=""
-                />
-                <p>Đăng nhập để xem Thông báo</p>
-              </NotificationHeader>
-              <ButtonContainer>
-                <Button
-                  onClick={() => {
-                    setShow(true);
-                    setTitle("Sign Up Form");
-                  }}
-                >
-                  Đăng ký
-                </Button>
-                <Button
-                  onClick={() => {
-                    setShow(true);
-                    setTitle("Login Form");
-                  }}
-                >
-                  Đăng nhập
-                </Button>
-              </ButtonContainer>
-            </NotificationContainer>
-          )}
+      <RightNavbarItems>
+        <RightNavbarItems className="notification">
+          <ItemLink href="">Thông báo</ItemLink>
+          <NotificationContainer className="notification-container">
+            <NotificationHeader>
+              <img
+                src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/99e561e3944805a023e87a81d4869600.png"
+                alt=""
+              />
+              <p>Đăng nhập để xem Thông báo</p>
+            </NotificationHeader>
+
+            <ButtonContainer>
+              <Button
+                onClick={() => {
+                  setShow(true);
+                  setTitle("Sign Up Form");
+                }}
+              >
+                Đăng ký
+              </Button>
+
+              <Button
+                onClick={() => {
+                  setShow(true);
+                  setTitle("Login Form");
+                }}
+              >
+                Đăng nhập
+              </Button>
+            </ButtonContainer>
+          </NotificationContainer>
         </RightNavbarItems>
-      ))}
+
+        <RightNavbarItems>
+          <ItemLink href="https://help.shopee.vn/vn/s/">Hỗ trợ</ItemLink>
+        </RightNavbarItems>
+        <RightNavbarItems>
+          <ItemLink
+            href=""
+            onClick={(e) => {
+              setShow(true);
+              setTitle("Sign In Form");
+              e.preventDefault();
+            }}
+          >
+            Đăng ký
+          </ItemLink>
+        </RightNavbarItems>
+        <RightNavbarItems>
+          <ItemLink
+            href=""
+            onClick={(e) => {
+              setShow(true);
+              setTitle("Sign Up Form");
+              e.preventDefault();
+            }}
+          >
+            Đăng nhập
+          </ItemLink>
+        </RightNavbarItems>
+      </RightNavbarItems>
+
       <Modal show={show} title={title} onClose={handleCloseModal}>
-        <input type="text" />
-        <input type="password" />
+        <input type="text" placeholder="Số điện thoại" />
+        <input type="password" placeholder="Mật khẩu" />
+        <input type="password" placeholder="Nhập lại mật khẩu" />
       </Modal>
     </>
   );
 };
 
-const RightNavbarData = [
-  {
-    className: "notification",
-    text: "Thông Báo",
-  },
-  {
-    url: "https://help.shopee.vn",
-    text: "Hỗ Trợ",
-  },
-  {
-    text: "Đăng Ký",
-  },
-  {
-    text: "Đăng Nhập",
-  },
-];
+const fadeIn = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`;
 
 const NotificationContainer = styled.div`
   position: absolute;
@@ -85,7 +105,7 @@ const NotificationContainer = styled.div`
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   display: none;
-  animation: fadeIn ease-in 0.3s;
+  animation: ${fadeIn} ease-in 0.3s;
 
   &::before {
     content: "";
@@ -95,15 +115,6 @@ const NotificationContainer = styled.div`
     top: -10px;
     height: 18px;
     cursor: pointer;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `;
 

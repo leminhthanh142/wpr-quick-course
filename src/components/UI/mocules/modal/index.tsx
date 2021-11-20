@@ -2,26 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 type ModalProps = {
-  title: string
-  show: boolean
-  children?: React.ReactNode
-  onClose: () => void
-}
+  title: string;
+  show: boolean;
+  children?: React.ReactNode;
+  onClose: () => void;
+};
 
 export const Modal = ({
-  title, show, children, onClose,
+  title,
+  show,
+  children,
+  onClose,
 }: ModalProps) => {
   if (!show) return null;
   return (
     <Wrapper>
       <ModalWrapper>
         <span onClick={onClose}>X</span>
-        <ModalHeader>
-          {title}
-        </ModalHeader>
-        <ModalBody>
-          {children}
-        </ModalBody>
+        <ModalHeader>{title}</ModalHeader>
+        <ModalBody>{children}</ModalBody>
         <ModalFooter />
       </ModalWrapper>
     </Wrapper>
@@ -36,14 +35,51 @@ const Wrapper = styled.div`
   z-index: 9999;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
 `;
+
 const ModalWrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0 36px;
+
+  & span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+
+  & span:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
 `;
-const ModalHeader = styled.div``;
-const ModalBody = styled.div``;
+
+const ModalHeader = styled.div`
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+`;
+const ModalBody = styled.div`
+  margin-bottom: 24px;
+
+  & input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin: 2px 0;
+    outline: none;
+  }
+
+  & input:focus {
+    border: 1px solid #000;
+  }
+`;
 const ModalFooter = styled.div``;
