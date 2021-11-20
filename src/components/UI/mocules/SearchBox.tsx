@@ -77,7 +77,6 @@ const IconSearchWrapper = styled.div`
 const Items = styled.div`
   display: none;
   width: 400px;
-  height: 140px;
   position: absolute;
   border-radius: 2px;
   background-color: #fff;
@@ -86,9 +85,20 @@ const Items = styled.div`
   right: 40%;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 999;
+  animation: fadeIn ease-in 0.3s;
 
   img {
     width: 25%;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
 
