@@ -16,29 +16,21 @@ export const RightNavbar = () => (
         </NotificationHeader>
 
         <ButtonContainer>
-          <Button>
-            Đăng ký
-          </Button>
+          <Button>Đăng ký</Button>
 
-          <Button>
-            Đăng nhập
-          </Button>
+          <Button>Đăng nhập</Button>
         </ButtonContainer>
       </NotificationContainer>
     </RightNavbarItems>
 
     <RightNavbarItems>
-      <ItemLink href="https://help.shopee.vn/vn/s/">Hỗ trợ</ItemLink>
+      <StyledLink to="/support">Hỗ trợ</StyledLink>
     </RightNavbarItems>
     <RightNavbarItems>
-      <Link to="/login">
-        Đăng ký
-      </Link>
+      <StyledLink to="/signup">Đăng ký</StyledLink>
     </RightNavbarItems>
     <RightNavbarItems>
-      <ItemLink>
-        Đăng nhập
-      </ItemLink>
+      <StyledLink to="/signin">Đăng nhập</StyledLink>
     </RightNavbarItems>
   </RightNavbarItems>
 );
@@ -63,7 +55,7 @@ const NotificationContainer = styled.div`
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   display: none;
-  animation: ${fadeIn} ease-in 0.3s;
+  animation: ${fadeIn} ease-in 0.2s;
 
   &::before {
     content: "";
@@ -107,7 +99,7 @@ const Button = styled.button`
   }
 `;
 
-const RightNavbarItems = styled.li`
+const RightNavbarItems = styled.div`
   position: relative;
   display: inline-block;
   margin: 0 8px;
@@ -123,6 +115,16 @@ const ItemLink = styled.a`
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
 
   &:hover {
     color: rgba(255, 255, 255, 0.7);

@@ -1,10 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Navbar } from "../../UI/organisms/NavBar";
 import { Search } from "../../UI/mocules/SearchBox";
 
-export const Header = () => (
-  <HeaderStyle>
+type HeaderProps = {
+  color?: string;
+};
+
+export const Header = ({ color }: HeaderProps) => (
+  <HeaderStyle color={color}>
     <Grid>
       <Navbar />
       <Search />
@@ -14,7 +18,7 @@ export const Header = () => (
 
 const HeaderStyle = styled.header`
   height: 120px;
-  background-image: linear-gradient(0, #ee4d2d, #f53d2d);
+  background-color: ${(props) => (props.color ? "#f53d2d" : "#d0011b")};
 `;
 
 const Grid = styled.div`

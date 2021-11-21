@@ -12,7 +12,7 @@ import { Header } from "../templates/Header";
 export const HomePage = () => (
   <>
     <Popup />
-    <Header />
+    <Header color="#f53d2d" />
     <Body>
       <Shrink>
         <Hightlight>
@@ -27,16 +27,20 @@ export const HomePage = () => (
     </Body>
   </>
 );
+
 const Hightlight = styled.div`
   background: white;
-  padding: 30px 10px 0 10px; 
+  padding: 30px 10px 0 10px;
 `;
+
 const Shrink = styled.div`
   width: 75%;
+
   @media (max-width: 1000px) {
     width: 98%;
-  } ;
+  }
 `;
+
 const Body = styled.div`
   display: flex;
   justify-content: center;
