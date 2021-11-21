@@ -33,16 +33,19 @@ export const HomePage = () => (
     <Footer />
   </>
 );
+
 const Hightlight = styled.div`
   background: white;
   padding: 30px 10px 0 10px;
 `;
+
 const Shrink = styled.div`
   width: 75%;
   @media (max-width: 1100px) {
     width: 98%;
-  } ;
+  }
 `;
+
 const Body = styled.div`
   display: flex;
   justify-content: center;

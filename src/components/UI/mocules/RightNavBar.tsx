@@ -65,7 +65,7 @@ const NotificationContainer = styled.div`
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   display: none;
-  animation: ${fadeIn} ease-in 0.3s;
+  animation: ${fadeIn} ease-in 0.2s;
 
   &::before {
     content: "";
@@ -109,7 +109,7 @@ const Button = styled.button`
   }
 `;
 
-const RightNavbarItems = styled.li`
+const RightNavbarItems = styled.div`
   position: relative;
   display: inline-block;
   margin: 0 8px;

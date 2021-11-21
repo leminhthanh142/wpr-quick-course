@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Modal } from "../../UI/mocules/modal";
+import { Header } from "../../templates/Header";
 
-export const LoginPage = () => (
+export const ShopeeMall = () => (
   <Wrapper>
-    <Modal title="Login" />
-    Login Page
+    <Header />
   </Wrapper>
 );
 

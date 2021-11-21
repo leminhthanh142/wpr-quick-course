@@ -1,21 +1,18 @@
 import React from "react";
 import styled, { keyframes } from "styled-components/macro";
+import { Link } from "react-router-dom";
 import { Logo } from "../../sources/Logo";
 import { IconSearch } from "../../sources/IconSearch";
 import { IconCart } from "../../sources/IconCart";
 
 export const Search = () => (
   <HeaderSearch>
-    <LogoWrapper>
-      <a href="https://shopee.vn/">
-        <Logo />
-      </a>
-    </LogoWrapper>
+    <Link to="/">
+      <Logo color="#fff" />
+    </Link>
     <SearchBar>
       <Input placeholder="Nhập để tìm kiếm sản phẩm" />
-      <IconSearchWrapper>
-        <IconSearch />
-      </IconSearchWrapper>
+      <IconSearch color="#fb5533" />
     </SearchBar>
     <CartContainer>
       <IconCart />
@@ -31,21 +28,18 @@ export const Search = () => (
 );
 
 const fadeIn = keyframes`
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
 
 const HeaderSearch = styled.div`
   display: flex;
   align-items: center;
   height: 94px;
-`;
-const LogoWrapper = styled.div`
-  width: 200px;
 `;
 
 const SearchBar = styled.div`
@@ -66,23 +60,6 @@ const Input = styled.input`
   padding: 0 8px;
 `;
 
-const IconSearchWrapper = styled.div`
-  position: absolute;
-  right: 4px;
-  top: 3px;
-  height: 34px;
-  width: 60px;
-  background-color: #fb5533;
-  border-radius: 2px;
-  text-align: center;
-  line-height: 40px;
-
-  &:hover {
-    background-color: #fb6445;
-    cursor: pointer;
-  }
-`;
-
 const Items = styled.div`
   display: none;
   width: 400px;
@@ -99,15 +76,6 @@ const Items = styled.div`
 
   img {
     width: 25%;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 `;
 
