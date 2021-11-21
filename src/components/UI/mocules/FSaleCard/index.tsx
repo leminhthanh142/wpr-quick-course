@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import DiscountTag from "../atoms/DiscountTag";
-import { ProgressBar } from "../atoms/ProgressBar";
+import DiscountTag from "../../atoms/DiscountTag";
+import { ProgressBar } from "../../atoms/ProgressBar";
 
 interface CardProps {
   imgLink: string;
