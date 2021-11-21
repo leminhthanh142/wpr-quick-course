@@ -10,7 +10,7 @@ export const LeftNavbar = () => (
         </ItemLink>
         {item.className && (
           <QRContainer className="qr-code-container">
-            <QRimg src="./qr_code.png" />
+            <QRimg src="../qr_code.png" />
             <QRapps>
               {AppImages.map((image, i) => (
                 <QrAppLink key={i} href={image.url}>
@@ -47,15 +47,15 @@ const LeftNavbarData = [
 const AppImages = [
   {
     url: "https://shopee.vn/web",
-    src: "./app-store.png",
+    src: "../app-store.png",
   },
   {
     url: "https://shopee.vn/web",
-    src: "./google-play.png",
+    src: "../google-play.png",
   },
   {
     url: "https://shopee.vn/web",
-    src: "./app-gallery.png",
+    src: "../app-gallery.png",
   },
 ];
 
