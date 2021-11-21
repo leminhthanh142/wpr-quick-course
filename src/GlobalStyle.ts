@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     background: #eee;
-    height: 200vh;
+    height: 100vh;
   }
 
 .swiper-slide {

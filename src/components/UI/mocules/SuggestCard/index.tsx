@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 import DiscountTag from "../../atoms/DiscountTag";
 
 interface CardProps {
@@ -9,6 +10,7 @@ interface CardProps {
   price: number;
   productSold?: number;
   discountPercent?: number;
+  linkTo: string
 }
 
 const SuggestCard = ({
@@ -18,6 +20,7 @@ const SuggestCard = ({
   price,
   productSold,
   discountPercent,
+  linkTo,
 }: CardProps) => {
   const formatPrice = (x: number) => {
     const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -27,30 +30,32 @@ const SuggestCard = ({
   const formattedPrice = formatPrice(price);
   return (
     <Container productImg={imgLink} discountImg={discountImg}>
-      <div className="card">
-        <div className="img-wrapper">
-          {discountImg && <div className="discount-overlay" />}
-          <div className="product" />
-        </div>
-        <div className="title">{title}</div>
-        <div className="info">
-          <p className="price-text">
-            <span className="unit">₫</span>
-            {formattedPrice}
-          </p>
-          {productSold && (
+      <Link to={linkTo}>
+        <div className="card">
+          <div className="img-wrapper">
+            {discountImg && <div className="discount-overlay" />}
+            <div className="product" />
+          </div>
+          <div className="title">{title}</div>
+          <div className="info">
+            <p className="price-text">
+              <span className="unit">₫</span>
+              {formattedPrice}
+            </p>
+            {productSold && (
             <p className="sold">
               Đã bán
               {productSold}
               k
             </p>
-          )}
+            )}
+          </div>
+          {discountPercent && <DiscountTag discount={discountPercent} />}
+          <span className="hover-item">
+            <div>Tìm sản phẩm tương tự</div>
+          </span>
         </div>
-        {discountPercent && <DiscountTag discount={discountPercent} />}
-        <a className="hover-item" href="https://google.ccom.vn">
-          <div>Tìm sản phẩm tương tự</div>
-        </a>
-      </div>
+      </Link>
     </Container>
   );
 };

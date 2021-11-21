@@ -8,15 +8,16 @@ export const Suggestion = () => (
       <p>GỢI Ý HÔM NAY</p>
     </Title>
     <Grid>
-      {DATAs.map((data, i) => (
+      {DATAs.map((data) => (
         <SuggestCard
-          key={i}
+          key={data.id}
           title={data.title}
           imgLink={data.imgLink}
           price={data.price}
           productSold={data.productSold}
           discountPercent={data.discount}
           discountImg={data.discountImg}
+          linkTo={`/product/${data.id}`}
         />
       ))}
     </Grid>
@@ -65,7 +66,7 @@ const Grid = styled.div`
   align-content: flex-start;
   min-height: calc(100vh - 11.25rem);
 `;
-const DATAs = [
+export const DATAs = [
   {
     title:
       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
@@ -73,6 +74,7 @@ const DATAs = [
     price: 45000,
     productSold: 39.7,
     discount: 22,
+    id: 1,
   },
   {
     title: "Áo khoác Provip",
@@ -80,6 +82,7 @@ const DATAs = [
     price: 12000,
     productSold: 4.6,
     discount: 50,
+    id: 2,
   },
   {
     title: "Sáp thơm dã man",
@@ -87,6 +90,7 @@ const DATAs = [
     price: 35000,
     productSold: 0.1,
     discount: 40,
+    id: 3,
   },
   {
     title: "Nước tẩy trang L'Oreal",
@@ -95,6 +99,7 @@ const DATAs = [
     productSold: 10,
     discount: 10,
     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+    id: 4,
   },
   {
     title: "Ốp lưng iphone B@R trong cạnh vuông",
@@ -103,6 +108,7 @@ const DATAs = [
     productSold: 4.6,
     discount: 50,
     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+    id: 5,
   },
   {
     title: "Kính Điệu Ghê Gúm",
@@ -111,6 +117,7 @@ const DATAs = [
     productSold: 1.6,
     discount: 32,
     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+    id: 6,
   },
   {
     title: "Áo khoác Provip",
@@ -118,6 +125,7 @@ const DATAs = [
     price: 12000,
     productSold: 4.6,
     discount: 50,
+    id: 7,
   },
   {
     title: "Sáp thơm dã man",
@@ -125,6 +133,7 @@ const DATAs = [
     price: 35000,
     productSold: 0.1,
     discount: 40,
+    id: 8,
   },
   {
     title: "Nước tẩy trang L'Oreal",
@@ -133,6 +142,7 @@ const DATAs = [
     productSold: 10,
     discount: 10,
     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+    id: 9,
   },
   {
     title:
@@ -141,6 +151,7 @@ const DATAs = [
     price: 45000,
     productSold: 39.7,
     discount: 22,
+    id: 10,
   },
   {
     title: "Ốp lưng iphone B@R trong cạnh vuông",
@@ -149,6 +160,7 @@ const DATAs = [
     productSold: 4.6,
     discount: 50,
     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+    id: 11,
   },
   {
     title: "Kính Điệu Ghê Gúm",
@@ -157,6 +169,7 @@ const DATAs = [
     productSold: 1.6,
     discount: 32,
     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+    id: 12,
   },
   {
     title: "Áo khoác Provip",
@@ -164,6 +177,7 @@ const DATAs = [
     price: 12000,
     productSold: 4.6,
     discount: 50,
+    id: 13,
   },
   {
     title: "Sáp thơm dã man",
@@ -171,6 +185,7 @@ const DATAs = [
     price: 35000,
     productSold: 0.1,
     discount: 40,
+    id: 14,
   },
   {
     title: "Nước tẩy trang L'Oreal",
@@ -179,6 +194,7 @@ const DATAs = [
     productSold: 10,
     discount: 10,
     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+    id: 15,
   },
   {
     title: "Ốp lưng iphone B@R trong cạnh vuông",
@@ -187,6 +203,7 @@ const DATAs = [
     productSold: 4.6,
     discount: 50,
     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+    id: 16,
   },
   {
     title: "Kính Điệu Ghê Gúm",
@@ -195,6 +212,7 @@ const DATAs = [
     productSold: 1.6,
     discount: 32,
     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+    id: 17,
   },
   {
     title:
@@ -203,6 +221,7 @@ const DATAs = [
     price: 45000,
     productSold: 39.7,
     discount: 22,
+    id: 18,
   },
   {
     title:
@@ -211,6 +230,7 @@ const DATAs = [
     price: 45000,
     productSold: 39.7,
     discount: 22,
+    id: 19,
   },
   {
     title: "Áo khoác Provip",
@@ -218,6 +238,7 @@ const DATAs = [
     price: 12000,
     productSold: 4.6,
     discount: 50,
+    id: 20,
   },
   {
     title: "Sáp thơm dã man",
@@ -225,6 +246,7 @@ const DATAs = [
     price: 35000,
     productSold: 0.1,
     discount: 40,
+    id: 21,
   },
   {
     title: "Nước tẩy trang L'Oreal",
@@ -233,6 +255,7 @@ const DATAs = [
     productSold: 10,
     discount: 10,
     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+    id: 22,
   },
   {
     title: "Ốp lưng iphone B@R trong cạnh vuông",
@@ -241,6 +264,7 @@ const DATAs = [
     productSold: 4.6,
     discount: 50,
     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+    id: 23,
   },
   {
     title: "Kính Điệu Ghê Gúm",
@@ -249,5 +273,6 @@ const DATAs = [
     productSold: 1.6,
     discount: 32,
     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+    id: 24,
   },
 ];
