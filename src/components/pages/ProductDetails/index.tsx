@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
-import { DATAs } from "../../UI/organisms/SuggestPanel";
+import { ProductData } from "../../../types/product";
 
 type Params = {
   id: string
@@ -11,24 +11,37 @@ type Params = {
 
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
+  const [data, setData] = useState<ProductData>();
+
+  useEffect(() => {
+    fetchProduct();
+  }, [id]);
+
+  const fetchProduct = async () => {
+    try {
+      const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product/${id}`);
+      setData(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <Header />
       <div>
-        {DATAs[Number(id) - 1].title}
+        {data?.title}
       </div>
       <div>
-        {DATAs[Number(id) - 1].price}
+        {data?.price}
       </div>
       <div>
-        {DATAs[Number(id) - 1].productSold}
+        {data?.productSold}
       </div>
       <div>
-        {DATAs[Number(id) - 1].discount}
+        {data?.discount}
       </div>
-      <div>
-        {DATAs[Number(id) - 1].imgLink}
-      </div>
+      <img src={data?.imgLink} alt="" />
       <Footer />
     </div>
   );

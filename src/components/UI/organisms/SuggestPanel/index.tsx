@@ -1,31 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
+import axios from "axios";
 import SuggestCard from "../../mocules/SuggestCard";
+import { ProductData } from "../../../../types/product";
 
-export const Suggestion = () => (
-  <Container>
-    <Title>
-      <p>GỢI Ý HÔM NAY</p>
-    </Title>
-    <Grid>
-      {DATAs.map((data) => (
-        <SuggestCard
-          key={data.id}
-          title={data.title}
-          imgLink={data.imgLink}
-          price={data.price}
-          productSold={data.productSold}
-          discountPercent={data.discount}
-          discountImg={data.discountImg}
-          linkTo={`/product/${data.id}`}
-        />
-      ))}
-    </Grid>
-    <a href="https://google.com.vn" className="readmore">
-      <div>Xem Thêm</div>
-    </a>
-  </Container>
-);
+export const Suggestion = () => {
+  const [products, setProducts] = useState<ProductData[]>([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product`);
+      setProducts(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <Container>
+      <Title>
+        <p>GỢI Ý HÔM NAY</p>
+      </Title>
+      <Grid>
+        {products.map((item) => (
+          <SuggestCard
+            key={item.id}
+            title={item.title}
+            imgLink={item.imgLink}
+            price={item.price}
+            productSold={item.productSold}
+            discountPercent={item.discount}
+            discountImg={item.discountImg}
+            linkTo={`/product/${item.id}`}
+          />
+        ))}
+      </Grid>
+      <a href="https://google.com.vn" className="readmore">
+        <div>Xem Thêm</div>
+      </a>
+    </Container>
+  );
+};
 const Container = styled.div`
   margin-top: 20px;
   & .readmore {
@@ -66,213 +85,213 @@ const Grid = styled.div`
   align-content: flex-start;
   min-height: calc(100vh - 11.25rem);
 `;
-export const DATAs = [
-  {
-    title:
-      "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
-    imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
-    price: 45000,
-    productSold: 39.7,
-    discount: 22,
-    id: 1,
-  },
-  {
-    title: "Áo khoác Provip",
-    imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
-    price: 12000,
-    productSold: 4.6,
-    discount: 50,
-    id: 2,
-  },
-  {
-    title: "Sáp thơm dã man",
-    imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
-    price: 35000,
-    productSold: 0.1,
-    discount: 40,
-    id: 3,
-  },
-  {
-    title: "Nước tẩy trang L'Oreal",
-    imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
-    price: 47000,
-    productSold: 10,
-    discount: 10,
-    discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
-    id: 4,
-  },
-  {
-    title: "Ốp lưng iphone B@R trong cạnh vuông",
-    imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
-    price: 9000,
-    productSold: 4.6,
-    discount: 50,
-    discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
-    id: 5,
-  },
-  {
-    title: "Kính Điệu Ghê Gúm",
-    imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
-    price: 6000,
-    productSold: 1.6,
-    discount: 32,
-    discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
-    id: 6,
-  },
-  {
-    title: "Áo khoác Provip",
-    imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
-    price: 12000,
-    productSold: 4.6,
-    discount: 50,
-    id: 7,
-  },
-  {
-    title: "Sáp thơm dã man",
-    imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
-    price: 35000,
-    productSold: 0.1,
-    discount: 40,
-    id: 8,
-  },
-  {
-    title: "Nước tẩy trang L'Oreal",
-    imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
-    price: 47000,
-    productSold: 10,
-    discount: 10,
-    discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
-    id: 9,
-  },
-  {
-    title:
-      "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
-    imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
-    price: 45000,
-    productSold: 39.7,
-    discount: 22,
-    id: 10,
-  },
-  {
-    title: "Ốp lưng iphone B@R trong cạnh vuông",
-    imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
-    price: 9000,
-    productSold: 4.6,
-    discount: 50,
-    discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
-    id: 11,
-  },
-  {
-    title: "Kính Điệu Ghê Gúm",
-    imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
-    price: 6000,
-    productSold: 1.6,
-    discount: 32,
-    discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
-    id: 12,
-  },
-  {
-    title: "Áo khoác Provip",
-    imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
-    price: 12000,
-    productSold: 4.6,
-    discount: 50,
-    id: 13,
-  },
-  {
-    title: "Sáp thơm dã man",
-    imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
-    price: 35000,
-    productSold: 0.1,
-    discount: 40,
-    id: 14,
-  },
-  {
-    title: "Nước tẩy trang L'Oreal",
-    imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
-    price: 47000,
-    productSold: 10,
-    discount: 10,
-    discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
-    id: 15,
-  },
-  {
-    title: "Ốp lưng iphone B@R trong cạnh vuông",
-    imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
-    price: 9000,
-    productSold: 4.6,
-    discount: 50,
-    discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
-    id: 16,
-  },
-  {
-    title: "Kính Điệu Ghê Gúm",
-    imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
-    price: 6000,
-    productSold: 1.6,
-    discount: 32,
-    discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
-    id: 17,
-  },
-  {
-    title:
-      "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
-    imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
-    price: 45000,
-    productSold: 39.7,
-    discount: 22,
-    id: 18,
-  },
-  {
-    title:
-      "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
-    imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
-    price: 45000,
-    productSold: 39.7,
-    discount: 22,
-    id: 19,
-  },
-  {
-    title: "Áo khoác Provip",
-    imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
-    price: 12000,
-    productSold: 4.6,
-    discount: 50,
-    id: 20,
-  },
-  {
-    title: "Sáp thơm dã man",
-    imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
-    price: 35000,
-    productSold: 0.1,
-    discount: 40,
-    id: 21,
-  },
-  {
-    title: "Nước tẩy trang L'Oreal",
-    imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
-    price: 47000,
-    productSold: 10,
-    discount: 10,
-    discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
-    id: 22,
-  },
-  {
-    title: "Ốp lưng iphone B@R trong cạnh vuông",
-    imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
-    price: 9000,
-    productSold: 4.6,
-    discount: 50,
-    discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
-    id: 23,
-  },
-  {
-    title: "Kính Điệu Ghê Gúm",
-    imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
-    price: 6000,
-    productSold: 1.6,
-    discount: 32,
-    discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
-    id: 24,
-  },
-];
+// export const DATAs = [
+//   {
+//     title:
+//       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
+//     imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
+//     price: 45000,
+//     productSold: 39.7,
+//     discount: 22,
+//     id: 1,
+//   },
+//   {
+//     title: "Áo khoác Provip",
+//     imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
+//     price: 12000,
+//     productSold: 4.6,
+//     discount: 50,
+//     id: 2,
+//   },
+//   {
+//     title: "Sáp thơm dã man",
+//     imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
+//     price: 35000,
+//     productSold: 0.1,
+//     discount: 40,
+//     id: 3,
+//   },
+//   {
+//     title: "Nước tẩy trang L'Oreal",
+//     imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
+//     price: 47000,
+//     productSold: 10,
+//     discount: 10,
+//     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+//     id: 4,
+//   },
+//   {
+//     title: "Ốp lưng iphone B@R trong cạnh vuông",
+//     imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
+//     price: 9000,
+//     productSold: 4.6,
+//     discount: 50,
+//     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+//     id: 5,
+//   },
+//   {
+//     title: "Kính Điệu Ghê Gúm",
+//     imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
+//     price: 6000,
+//     productSold: 1.6,
+//     discount: 32,
+//     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+//     id: 6,
+//   },
+//   {
+//     title: "Áo khoác Provip",
+//     imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
+//     price: 12000,
+//     productSold: 4.6,
+//     discount: 50,
+//     id: 7,
+//   },
+//   {
+//     title: "Sáp thơm dã man",
+//     imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
+//     price: 35000,
+//     productSold: 0.1,
+//     discount: 40,
+//     id: 8,
+//   },
+//   {
+//     title: "Nước tẩy trang L'Oreal",
+//     imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
+//     price: 47000,
+//     productSold: 10,
+//     discount: 10,
+//     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+//     id: 9,
+//   },
+//   {
+//     title:
+//       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
+//     imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
+//     price: 45000,
+//     productSold: 39.7,
+//     discount: 22,
+//     id: 10,
+//   },
+//   {
+//     title: "Ốp lưng iphone B@R trong cạnh vuông",
+//     imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
+//     price: 9000,
+//     productSold: 4.6,
+//     discount: 50,
+//     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+//     id: 11,
+//   },
+//   {
+//     title: "Kính Điệu Ghê Gúm",
+//     imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
+//     price: 6000,
+//     productSold: 1.6,
+//     discount: 32,
+//     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+//     id: 12,
+//   },
+//   {
+//     title: "Áo khoác Provip",
+//     imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
+//     price: 12000,
+//     productSold: 4.6,
+//     discount: 50,
+//     id: 13,
+//   },
+//   {
+//     title: "Sáp thơm dã man",
+//     imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
+//     price: 35000,
+//     productSold: 0.1,
+//     discount: 40,
+//     id: 14,
+//   },
+//   {
+//     title: "Nước tẩy trang L'Oreal",
+//     imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
+//     price: 47000,
+//     productSold: 10,
+//     discount: 10,
+//     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+//     id: 15,
+//   },
+//   {
+//     title: "Ốp lưng iphone B@R trong cạnh vuông",
+//     imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
+//     price: 9000,
+//     productSold: 4.6,
+//     discount: 50,
+//     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+//     id: 16,
+//   },
+//   {
+//     title: "Kính Điệu Ghê Gúm",
+//     imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
+//     price: 6000,
+//     productSold: 1.6,
+//     discount: 32,
+//     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+//     id: 17,
+//   },
+//   {
+//     title:
+//       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
+//     imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
+//     price: 45000,
+//     productSold: 39.7,
+//     discount: 22,
+//     id: 18,
+//   },
+//   {
+//     title:
+//       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
+//     imgLink: "https://cf.shopee.vn/file/b2612c1a8242069aced2f2f26b592f38_tn",
+//     price: 45000,
+//     productSold: 39.7,
+//     discount: 22,
+//     id: 19,
+//   },
+//   {
+//     title: "Áo khoác Provip",
+//     imgLink: "https://cf.shopee.vn/file/394ed88df2bf7211c65b1871147bd7a4_tn",
+//     price: 12000,
+//     productSold: 4.6,
+//     discount: 50,
+//     id: 20,
+//   },
+//   {
+//     title: "Sáp thơm dã man",
+//     imgLink: "https://cf.shopee.vn/file/6454e68e2dd55f586ee0719feb4150cd_tn",
+//     price: 35000,
+//     productSold: 0.1,
+//     discount: 40,
+//     id: 21,
+//   },
+//   {
+//     title: "Nước tẩy trang L'Oreal",
+//     imgLink: "https://cf.shopee.vn/file/1a936a7f7352c65e84d1e96bb3e8d827_tn",
+//     price: 47000,
+//     productSold: 10,
+//     discount: 10,
+//     discountImg: "https://cf.shopee.vn/file/473d772abb741a21abece2d53db720e6",
+//     id: 22,
+//   },
+//   {
+//     title: "Ốp lưng iphone B@R trong cạnh vuông",
+//     imgLink: "https://cf.shopee.vn/file/de5913553f87a3a435adab0f0f6872a4_tn",
+//     price: 9000,
+//     productSold: 4.6,
+//     discount: 50,
+//     discountImg: "https://cf.shopee.vn/file/1945c74cbbeefb9b559b338026c0ed0d",
+//     id: 23,
+//   },
+//   {
+//     title: "Kính Điệu Ghê Gúm",
+//     imgLink: "https://cf.shopee.vn/file/5d37a2bad7aa1fab32359216f29f1c5a_tn",
+//     price: 6000,
+//     productSold: 1.6,
+//     discount: 32,
+//     discountImg: "https://cf.shopee.vn/file/60118f48195836101a7cafc0b9fced2f",
+//     id: 24,
+//   },
+// ];
