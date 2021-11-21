@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 import { Logo } from "../../sources/Logo";
 import { Modal } from "../../UI/mocules/modal";
 import { Footer } from "../../templates/Footer";
@@ -31,13 +31,13 @@ export const SignUpPage = () => (
         </div>
         <Text>
           Bằng việc đăng kí, bạn đã đồng ý với Shopee về
-          <a href="/">Điều khoản dịch vụ</a>
+          <Link to="/">Điều khoản dịch vụ</Link>
           &
-          <a href="/">Chính sách bảo mật</a>
+          <Link to="/">Chính sách bảo mật</Link>
         </Text>
         <StyledText>
           Bạn đã có tài khoản?
-          <a href="/signin">Đăng nhập</a>
+          <Link to="/signin">Đăng nhập</Link>
         </StyledText>
       </Modal>
     </Body>
