@@ -15,7 +15,7 @@ import SuggestCard from "../UI/mocules/SuggestCard";
 export const HomePage = () => (
   <>
     <Popup />
-    <Header color="#f53d2d" />
+    <Header color="#ee4d2d" />
     <Body>
       <Shrink>
         <Hightlight>

@@ -77,7 +77,7 @@ const QRContainer = styled.div`
     width: 100%;
     position: absolute;
     left: 0;
-    top: -10px;
+    top: -16px;
     height: 18px;
     cursor: pointer;
   }
