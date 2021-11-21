@@ -24,8 +24,8 @@ export const SignInPage = () => (
         <div>
           <button type="submit">ĐĂNG NHẬP</button>
           <SignInFeature>
-            <a href="/">Quên mật khẩu</a>
-            <a href="/">Đăng nhập với SMS</a>
+            <Link to="/">Quên mật khẩu</Link>
+            <Link to="/">Đăng nhập với SMS</Link>
           </SignInFeature>
         </div>
         <Seperate>
@@ -40,7 +40,7 @@ export const SignInPage = () => (
         </div>
         <Text>
           Bạn mới biết đến Shopee?
-          <a href="/signup">Đăng ký</a>
+          <Link to="/signup">Đăng ký</Link>
         </Text>
       </Modal>
     </Body>
@@ -89,7 +89,7 @@ const SignInFeature = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  
+
   & a {
     color: blue;
   }
