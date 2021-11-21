@@ -1,21 +1,21 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Popup from "../UI/atoms/PopupAd";
-import AdPanel from "../UI/organisms/PrimaryAd";
-import { Catagories } from "../UI/organisms/Catagories";
-import TrendingPanel from "../UI/organisms/TrendingPanel";
-import { HomePanel } from "../UI/organisms/HomePanel";
-import { FlashSalePanel } from "../UI/organisms/FlashSale";
-import CompositeAds from "../UI/organisms/SecondaryAd";
-import { Header } from "../templates/Header";
-import { Footer } from "../templates/Footer";
-import { TopSearchBar } from "../UI/organisms/TopSearchPanel";
-import SuggestCard from "../UI/mocules/SuggestCard";
+import Popup from "../../UI/atoms/PopupAd";
+import AdPanel from "../../UI/organisms/PrimaryAd";
+import { Catagories } from "../../UI/organisms/Catagories";
+import TrendingPanel from "../../UI/organisms/TrendingPanel";
+import { HomePanel } from "../../UI/organisms/HomePanel";
+import { FlashSalePanel } from "../../UI/organisms/FlashSale";
+import CompositeAds from "../../UI/organisms/SecondaryAd";
+import { Header } from "../../templates/Header";
+import { Footer } from "../../templates/Footer";
+import { TopSearchBar } from "../../UI/organisms/TopSearchPanel";
+import { Suggestion } from "../../UI/organisms/SuggestPanel";
 
 export const HomePage = () => (
   <>
     <Popup />
-    <Header color="#ee4d2d" />
+    <Header />
     <Body>
       <Shrink>
         <Hightlight>
@@ -27,6 +27,7 @@ export const HomePage = () => (
         <FlashSalePanel />
         <CompositeAds />
         <TopSearchBar />
+        <Suggestion />
       </Shrink>
     </Body>
     <Footer />
@@ -40,8 +41,8 @@ const Hightlight = styled.div`
 
 const Shrink = styled.div`
   width: 75%;
-
-  @media (max-width: 1000px) {
+  
+  @media (max-width: 1100px) {
     width: 98%;
   }
 `;

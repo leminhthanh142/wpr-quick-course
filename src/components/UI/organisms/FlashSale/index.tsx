@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import { nanoid } from "nanoid";
-import Button from "../atoms/Buttons";
-import FlashSaleCard from "../mocules/FSaleCard";
+import Button from "../../atoms/Buttons";
+import FlashSaleCard from "../../mocules/FSaleCard";
 
 export const FlashSalePanel = () => {
   const [onPrev, setOnPrev] = useState(true);

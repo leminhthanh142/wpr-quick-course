@@ -11,9 +11,17 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     background: #eee;
-    height: 200vh;
+    height: 100vh;
   }
 
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
   li {
     list-style:none;
   }
@@ -33,15 +41,5 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
     justify-content: center;
     align-items: center;
-  }
-
-  .price-text {
-    color: #ee4d2d;
-    font-size: 1.5rem;
-  }
-
-  .unit {
-    margin-right: 4px;
-    font-size: 15px;
   }
 `;

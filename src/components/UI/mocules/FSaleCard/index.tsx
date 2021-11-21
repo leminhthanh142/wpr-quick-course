@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import DiscountTag from "../atoms/DiscountTag";
-import { ProgressBar } from "../atoms/ProgressBar";
+import DiscountTag from "../../atoms/DiscountTag";
+import { ProgressBar } from "../../atoms/ProgressBar";
 
 interface CardProps {
   imgLink: string;
@@ -71,6 +71,14 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
       width: 100%;
       padding-top: 100%;
       background-position: 50%;
+    }
+  }
+  & .price-text {
+    color: #ee4d2d;
+    font-size: 1.5rem;
+    .unit {
+      margin-right: 4px;
+      font-size: 15px;
     }
   }
 `;

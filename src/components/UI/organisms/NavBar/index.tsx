@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { LeftNavbar } from "../mocules/LeftNavBar";
-import { RightNavbar } from "../mocules/RightNavBar";
+import { LeftNavbar } from "../../mocules/LeftNavBar";
+import { RightNavbar } from "../../mocules/RightNavBar";
 
 export const Navbar = () => (
   <Nav>

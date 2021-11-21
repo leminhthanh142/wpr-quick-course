@@ -18,7 +18,7 @@ export const Header = ({ color }: HeaderProps) => (
 
 const HeaderStyle = styled.header`
   height: 120px;
-  background-image: linear-gradient(rgb(243, 65, 54), rgb(251, 101, 61));
+  background-image: linear-gradient(rgb(243, 65, 54), rgb(252, 101, 61));
 `;
 
 const Grid = styled.div`

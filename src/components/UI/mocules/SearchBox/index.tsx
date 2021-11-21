@@ -1,9 +1,9 @@
 import React from "react";
 import styled, { keyframes } from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { Logo } from "../../sources/Logo";
-import { IconSearch } from "../../sources/IconSearch";
-import { IconCart } from "../../sources/IconCart";
+import { Logo } from "../../../sources/Logo";
+import { IconSearch } from "../../../sources/IconSearch";
+import { IconCart } from "../../../sources/IconCart";
 
 export const Search = () => (
   <HeaderSearch>

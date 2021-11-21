@@ -45,8 +45,9 @@ export const TopSearchBar = () => {
           position="100%"
         />
         <Grid columns={DATAs.length}>
-          {DATAs.map((data) => (
+          {DATAs.map((data, i) => (
             <TopCard
+              key={i}
               title={data.title}
               imgLink={data.imgLink}
               revenue={data.revenue}

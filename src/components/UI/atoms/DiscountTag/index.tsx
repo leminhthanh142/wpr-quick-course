@@ -19,11 +19,12 @@ const Tag = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 3;
+  transform: translateX(10%);
+  z-index: 1;
   width: 50px;
   height: 50px;
   padding: 3px;
-  background: rgba(255, 212, 36, 0.9);
+  background: rgba(255, 212, 36);
   color: white;
   & .discountRate {
     color: red;
