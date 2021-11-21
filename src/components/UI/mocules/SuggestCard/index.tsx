@@ -60,6 +60,7 @@ export default SuggestCard;
 const Container = styled.div<{ productImg: string; discountImg?: string }>`
   width: 16.66667%;
   padding: 0.3125rem;
+  cursor: pointer;
   & .card {
     display: flex;
     position: relative;

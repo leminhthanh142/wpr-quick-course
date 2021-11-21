@@ -6,6 +6,7 @@ import { SignInPage } from "./components/pages/SignIn";
 import { SignUpPage } from "./components/pages/SignUp";
 import { GlobalStyle } from "./GlobalStyle";
 import { ShopeeMall } from "./components/pages/ShopeeMall";
+import { ProductDetails } from "./components/pages/ProductDetails";
 
 export const App = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ export const App = () => (
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/signin" component={SignInPage} />
       <Route exact path="/mall" component={ShopeeMall} />
+      <Route path="/product/:id" component={ProductDetails} />
       <Redirect from="*" to="/" />
     </Switch>
     <GlobalStyle />
