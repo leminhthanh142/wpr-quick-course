@@ -7,6 +7,6 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
-  "diffEditor.codeLens": true
+  "diffEditor.codeLens": true,
+  "editor.formatOnSave": true
 }

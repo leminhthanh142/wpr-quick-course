@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 type ModalProps = {
   title: string;
@@ -17,8 +17,6 @@ export const Modal = ({ title, children }: ModalProps) => (
 );
 
 const Wrapper = styled.div``;
-
-const ModalWrapper = styled.div``;
 
 const ModalHeader = styled.div``;
 

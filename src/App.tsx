@@ -1,13 +1,9 @@
 import React from "react";
-import {
-  Switch, Route, BrowserRouter, Redirect,
-} from "react-router-dom";
-
-import "./App.css";
+// eslint-disable-next-line object-curly-newline
+import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import { HomePage } from "./components/pages/HomePage";
-import { ShopeeMall } from "./components/pages/ShopeeMall";
-import { SignInPage } from "./components/pages/SignIn";
-import { SignUpPage } from "./components/pages/SignUp";
+import { LoginPage } from "./components/pages/Login";
+import { GlobalStyle } from "./GlobalStyle";
 
 export const App = () => (
   <BrowserRouter>
@@ -18,5 +14,6 @@ export const App = () => (
       <Route exact path="/mall" component={ShopeeMall} />
       <Redirect from="*" to="/" />
     </Switch>
+    <GlobalStyle />
   </BrowserRouter>
 );

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const RightNavbar = () => (
   <RightNavbarItems>
     <RightNavbarItems className="notification">
-      <ItemLink href="">Thông báo</ItemLink>
+      <StyledLink to="">Thông báo</StyledLink>
       <NotificationContainer className="notification-container">
         <NotificationHeader>
           <img
@@ -43,7 +43,17 @@ const fadeIn = keyframes`
         opacity: 1;
     }
 `;
+const StyledLink = styled(Link)`
+  font-family: "Arial", sans-serif;
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+`;
 const NotificationContainer = styled.div`
   position: absolute;
   background: #fff;
@@ -106,27 +116,5 @@ const RightNavbarItems = styled.div`
 
   &.notification:hover .notification-container {
     display: block;
-  }
-`;
-
-const ItemLink = styled.a`
-  font-family: "Arial", sans-serif;
-  font-size: 13px;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.7);
-  }
-`;
-
-const StyledLink = styled(Link)`
-  color: #fff;
-  font-size: 13px;
-  text-decoration: none;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.7);
   }
 `;

@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components/macro";
 import Popup from "../UI/atoms/PopupAd";
 import AdPanel from "../UI/organisms/PrimaryAd";
-import { Catagories } from "../templates/Catagories";
+import { Catagories } from "../UI/organisms/Catagories";
 import TrendingPanel from "../UI/organisms/TrendingPanel";
 import { HomePanel } from "../UI/organisms/HomePanel";
-import { FlashSalePanel } from "../templates/FlashSale";
+import { FlashSalePanel } from "../UI/organisms/FlashSale";
 import CompositeAds from "../UI/organisms/SecondaryAd";
 import { Header } from "../templates/Header";
+import { Footer } from "../templates/Footer";
+import { TopSearchBar } from "../UI/organisms/TopSearchPanel";
+import SuggestCard from "../UI/mocules/SuggestCard";
 
 export const HomePage = () => (
   <>
@@ -23,8 +26,10 @@ export const HomePage = () => (
         <Catagories />
         <FlashSalePanel />
         <CompositeAds />
+        <TopSearchBar />
       </Shrink>
     </Body>
+    <Footer />
   </>
 );
 
