@@ -8,8 +8,8 @@ const imgLink = [
 ];
 const CompositeAds = () => (
   <Container>
-    {imgLink.map((img) => (
-      <a href="https://www.google.com.vn/">
+    {imgLink.map((img, i) => (
+      <a key={i} href="https://www.google.com.vn/">
         <img src={img} alt="advertisement" />
       </a>
     ))}

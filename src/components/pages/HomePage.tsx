@@ -10,7 +10,7 @@ import CompositeAds from "../UI/organisms/SecondaryAd";
 import { Header } from "../templates/Header";
 import { Footer } from "../templates/Footer";
 import { TopSearchBar } from "../UI/organisms/TopSearchPanel";
-import SuggestCard from "../UI/mocules/SuggestCard";
+import { Suggestion } from "../UI/organisms/SuggestPanel";
 
 export const HomePage = () => (
   <>
@@ -27,6 +27,7 @@ export const HomePage = () => (
         <FlashSalePanel />
         <CompositeAds />
         <TopSearchBar />
+        <Suggestion />
       </Shrink>
     </Body>
     <Footer />
@@ -38,7 +39,7 @@ const Hightlight = styled.div`
 `;
 const Shrink = styled.div`
   width: 75%;
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     width: 98%;
   } ;
 `;
