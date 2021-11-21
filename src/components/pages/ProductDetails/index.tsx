@@ -12,6 +12,7 @@ type Params = {
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
   const [data, setData] = useState<ProductData>();
+  // vercel
 
   useEffect(() => {
     fetchProduct();
