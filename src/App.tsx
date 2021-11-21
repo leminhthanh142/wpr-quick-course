@@ -2,8 +2,10 @@ import React from "react";
 // eslint-disable-next-line object-curly-newline
 import { Switch, Route, BrowserRouter, Redirect } from "react-router-dom";
 import { HomePage } from "./components/pages/HomePage";
-import { LoginPage } from "./components/pages/Login";
+import { SignInPage } from "./components/pages/SignIn";
+import { SignUpPage } from "./components/pages/SignUp";
 import { GlobalStyle } from "./GlobalStyle";
+import { ShopeeMall } from "./components/pages/ShopeeMall";
 
 export const App = () => (
   <BrowserRouter>

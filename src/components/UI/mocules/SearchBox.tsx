@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components/macro";
 import { Logo } from "../../sources/Logo";
 import { IconSearch } from "../../sources/IconSearch";
 import { IconCart } from "../../sources/IconCart";
+import { Link } from "react-router-dom";
 
 export const Search = () => (
   <HeaderSearch>

@@ -8,11 +8,9 @@ type ModalProps = {
 
 export const Modal = ({ title, children }: ModalProps) => (
   <Wrapper>
-    <ModalWrapper>
-      <ModalHeader>{title}</ModalHeader>
-      <ModalBody>{children}</ModalBody>
-      <ModalFooter />
-    </ModalWrapper>
+    <ModalHeader>{title}</ModalHeader>
+    <ModalBody>{children}</ModalBody>
+    <ModalFooter />
   </Wrapper>
 );
 
