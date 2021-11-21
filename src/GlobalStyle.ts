@@ -31,4 +31,12 @@ a{
   justify-content: center;
   align-items: center;
 }
+.price-text {
+    color: #ee4d2d;
+    font-size: 1.5rem;
+}
+.unit {
+      margin-right: 4px;
+      font-size: 15px;
+}
 `;

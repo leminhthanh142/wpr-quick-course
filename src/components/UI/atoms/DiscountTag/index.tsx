@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const DiscountTag: React.FC<{ discount: number }> = ({ discount }) => (
+const DiscountTag: React.FC<{ discount?: number }> = ({ discount }) => (
   <Tag>
     <div>
       <div className="discountRate">
@@ -22,7 +22,7 @@ const Tag = styled.div`
   z-index: 3;
   width: 50px;
   height: 50px;
-  padding:3px;
+  padding: 3px;
   background: rgba(255, 212, 36, 0.9);
   color: white;
   & .discountRate {

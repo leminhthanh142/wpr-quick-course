@@ -1,23 +1,20 @@
 import React from "react";
 import styled from "styled-components/macro";
-import DiscountTag from "../atoms/DiscountTag";
-import { ProgressBar } from "../atoms/ProgressBar";
+import DiscountTag from "../../atoms/DiscountTag";
 
 interface CardProps {
   imgLink: string;
-  discountImg: string;
+  discountImg?: string;
   price: number;
-  productSold: number;
-  productTotal: number;
-  discount: number;
+  productSold?: number;
+  discount?: number;
 }
 
-const FlashSaleCard = ({
+const SuggestCard = ({
   imgLink,
   discountImg,
   price,
   productSold,
-  productTotal,
   discount,
 }: CardProps) => {
   const formatPrice = (x: number) => {
@@ -35,14 +32,16 @@ const FlashSaleCard = ({
         <span className="unit">₫</span>
         {formattedPrice}
       </p>
-      <ProgressBar productSold={productSold} productTotal={productTotal} />
-      <DiscountTag discount={discount} />
+      <div className="hover-item">Tìm sản phẩm tương tự</div>
+      {discount ?? <DiscountTag discount={discount} />}
+      {productSold ?? <p>Đã bán ...k</p>}
     </Container>
   );
 };
-export default FlashSaleCard;
-const Container = styled.div<{ productImg: string; discountImg: string }>`
+export default SuggestCard;
+const Container = styled.div<{ productImg: string; discountImg?: string }>`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -72,5 +71,13 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
       padding-top: 100%;
       background-position: 50%;
     }
+  }
+  & .hover-item {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    text-align: center;
+    padding: 10px;
+    background: #ee4d2d;
   }
 `;

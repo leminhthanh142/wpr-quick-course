@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components/macro";
-import { ProductCard } from "../UI/mocules/ProductCard";
-import Button from "../UI/atoms/Buttons";
+import { ProductCard } from "../mocules/ProductCard";
+import Button from "../atoms/Buttons";
 
 export const Catagories = () => {
   const [onPrev, setOnPrev] = useState(true);
