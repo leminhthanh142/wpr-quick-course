@@ -21,6 +21,7 @@ const SuggestCard = ({
     const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return result;
   };
+
   const formattedPrice = formatPrice(price);
   return (
     <Container productImg={imgLink} discountImg={discountImg}>
@@ -38,7 +39,9 @@ const SuggestCard = ({
     </Container>
   );
 };
+
 export default SuggestCard;
+
 const Container = styled.div<{ productImg: string; discountImg?: string }>`
   display: flex;
   position: relative;
@@ -47,11 +50,13 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
   align-items: center;
   text-align: center;
   position: relative;
+
   & .img-wrapper {
     position: relative;
     width: 173px;
     height: 173px;
     margin: 5px auto;
+
     .discount-overlay {
       position: absolute;
       z-index: 2;
@@ -63,6 +68,7 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
       background-size: contain;
       background-repeat: no-repeat;
     }
+
     .product {
       background-image: ${(props) => `url(${props.productImg})`};
       background-size: contain;
@@ -72,6 +78,7 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
       background-position: 50%;
     }
   }
+
   & .hover-item {
     position: absolute;
     bottom: 0;

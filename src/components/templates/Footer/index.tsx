@@ -102,6 +102,7 @@ export const Footer = () => (
     </PolicyFooter>
   </Wrapper>
 );
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -121,17 +122,21 @@ const Wrapper = styled.div`
     }
   }
 `;
+
 const Shrink = styled.div`
   width: 75%;
+
   @media (max-width: 1000px) {
     width: 98%;
   } ;
 `;
+
 const SubFooter = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
+
 const Item = styled.div`
   & p {
     font-weight: bold;
@@ -139,48 +144,58 @@ const Item = styled.div`
     margin-bottom: 20px;
   }
 `;
+
 const Download = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
   width: 70%;
+
   & img {
     display: block;
   }
+
   & .QRcode {
     width: 47%;
   }
+
   & div {
     width: 47%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
     img {
       width: 80%;
       margin: 10px 0;
     }
   }
 `;
+
 const PolicyFooter = styled.div`
   text-align: center;
   background: #eee;
   padding: 3em 2em;
   width: 100%;
+
   & p {
     margin: 10px;
     font-size: 12px;
     color: #555;
   }
+
   & .company-name,
   .policies {
     font-size: 14px;
+
     margin: 20px 0;
     a {
       color: #555;
       margin: 0 10px;
     }
   }
+
   & img {
     margin: 0 10px;
     width: 120px;
