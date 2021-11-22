@@ -12,7 +12,6 @@ type Params = {
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
   const [data, setData] = useState<ProductData>();
-  // vercel
 
   useEffect(() => {
     fetchProduct();
@@ -23,6 +22,7 @@ export const ProductDetails = () => {
       const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product/${id}`);
       setData(res.data);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   };
