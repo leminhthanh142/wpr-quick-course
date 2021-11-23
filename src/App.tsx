@@ -15,10 +15,7 @@ export const App = () => (
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/signin" component={SignInPage} />
       <Route exact path="/mall" component={ShopeeMall} />
-      <Route
-        path="/product/:id"
-        component={ProductDetails}
-      />
+      <Route path="/product/:id" component={ProductDetails} />
       <Redirect from="*" to="/" />
     </Switch>
     <GlobalStyle />

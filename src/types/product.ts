@@ -5,6 +5,5 @@ export type ProductData = {
   description: string,
   price: number,
   productSold: number,
-  discount: number,
-  discountImg: string
+  discount: number
 }
