@@ -19,6 +19,7 @@ export const Suggestion = () => {
       setProducts(res.data);
       console.log(res.data);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   };

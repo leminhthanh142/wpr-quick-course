@@ -7,15 +7,14 @@ import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
 
 type Params = {
-  id: string
-}
+  id: string;
+};
 type amountType = {
-  amount: number
-}
+  amount: number;
+};
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
   const [data, setData] = useState<ProductData>();
-  const [amount, setAmount] = useState<number>(0);
 
   useEffect(() => {
     fetchProduct();
@@ -23,9 +22,12 @@ export const ProductDetails = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`);
+      const res = await axios.get(
+        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`
+      );
       setData(res.data);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   };
@@ -35,18 +37,10 @@ export const ProductDetails = () => {
   return (
     <Container>
       <Header />
-      <div>
-        {data?.title}
-      </div>
-      <div>
-        {data?.price}
-      </div>
-      <div>
-        {data?.productSold}
-      </div>
-      <div>
-        {data?.discount}
-      </div>
+      <div>{data?.title}</div>
+      <div>{data?.price}</div>
+      <div>{data?.productSold}</div>
+      <div>{data?.discount}</div>
       <img src={data?.imgLink} alt="" />
       <Footer />
     </Container>
