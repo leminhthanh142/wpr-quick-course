@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import styled from "styled-components/macro";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
@@ -8,11 +9,13 @@ import { ProductData } from "../../../types/product";
 type Params = {
   id: string
 }
-
+type amountType = {
+  amount: number
+}
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
   const [data, setData] = useState<ProductData>();
-  // vercel
+  const [amount, setAmount] = useState<number>(0);
 
   useEffect(() => {
     fetchProduct();
@@ -20,15 +23,17 @@ export const ProductDetails = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product/${id}`);
+      const res = await axios.get(`https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`);
       setData(res.data);
     } catch (err) {
       console.log(err);
     }
   };
 
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
   return (
-    <div>
+    <Container>
       <Header />
       <div>
         {data?.title}
@@ -44,6 +49,7 @@ export const ProductDetails = () => {
       </div>
       <img src={data?.imgLink} alt="" />
       <Footer />
-    </div>
+    </Container>
   );
 };
+const Container = styled.div``;

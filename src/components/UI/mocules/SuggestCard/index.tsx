@@ -6,7 +6,6 @@ import DiscountTag from "../../atoms/DiscountTag";
 interface CardProps {
   title: string;
   imgLink: string;
-  discountImg?: string;
   price: number;
   productSold?: number;
   discountPercent?: number;
@@ -16,7 +15,6 @@ interface CardProps {
 const SuggestCard = ({
   title,
   imgLink,
-  discountImg,
   price,
   productSold,
   discountPercent,
@@ -26,14 +24,17 @@ const SuggestCard = ({
     const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return result;
   };
-
+  const formatSold = (x:number) => (
+    ((x / 1000) >= 1) ? Math.round(x / 1000) : x
+  );
   const formattedPrice = formatPrice(price);
+  const sold = formatSold(productSold!);
   return (
-    <Container productImg={imgLink} discountImg={discountImg}>
-      <Link to={linkTo}>
+    <Container productImg={imgLink}>
+      <StyledLink to={linkTo}>
         <div className="card">
+          {(discountPercent || discountPercent !== 0) && <DiscountTag discount={discountPercent} />}
           <div className="img-wrapper">
-            {discountImg && <div className="discount-overlay" />}
             <div className="product" />
           </div>
           <div className="title">{title}</div>
@@ -45,27 +46,29 @@ const SuggestCard = ({
             {productSold && (
             <p className="sold">
               Đã bán
-              {productSold}
+              {sold}
               k
             </p>
             )}
           </div>
-          {discountPercent && <DiscountTag discount={discountPercent} />}
           <span className="hover-item">
             <div>Tìm sản phẩm tương tự</div>
           </span>
         </div>
-      </Link>
+      </StyledLink>
     </Container>
   );
 };
 
 export default SuggestCard;
+const StyledLink = styled(Link)`
+  color:#555;
 
+`;
 const Container = styled.div<{ productImg: string; discountImg?: string }>`
-  width: 16.66667%;
-  padding: 0.3125rem;
+  width: 100%;
   cursor: pointer;
+  font-size: 0.85em;
   & .card {
     display: flex;
     position: relative;
@@ -91,29 +94,29 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
 
     .product {
       background-image: ${(props) => `url(${props.productImg})`};
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       width: 100%;
       padding-top: 100%;
     }
   }
   & .title {
-    width: 168px;
-    height: 32px;
+    width: 100%;
+    height: 40px;
     padding-left: 10px;
     margin: 10px 0;
     text-overflow: ellipsis;
     overflow: hidden;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     white-space: nowrap;
-    font-size: 0.85em;
   }
 
   & .info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     margin: 8px 0;
+    padding: 0 15px;
     .price-text {
       color: #ee4d2d;
     }

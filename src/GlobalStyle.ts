@@ -7,13 +7,13 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
+  transition:0.2s linear;
 }
 
   html {
     background: #eee;
     height: 100vh;
   }
-
 .swiper-slide {
   width: 100%;
   height: 100%;

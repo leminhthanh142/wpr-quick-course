@@ -3,6 +3,8 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import SuggestCard from "../../mocules/SuggestCard";
 import { ProductData } from "../../../../types/product";
+// eslint-disable-next-line object-curly-newline
+import { mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
 
 export const Suggestion = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
@@ -15,6 +17,7 @@ export const Suggestion = () => {
     try {
       const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product`);
       setProducts(res.data);
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -24,6 +27,7 @@ export const Suggestion = () => {
     <Container>
       <Title>
         <p>GỢI Ý HÔM NAY</p>
+        <img src="https://cf.shopee.vn/file/2163de8eb4ee4c25db0c9ba6f5d47cba" alt="sale-tab" />
       </Title>
       <Grid>
         {products.map((item) => (
@@ -34,7 +38,6 @@ export const Suggestion = () => {
             price={item.price}
             productSold={item.productSold}
             discountPercent={item.discount}
-            discountImg={item.discountImg}
             linkTo={`/product/${item.id}`}
           />
         ))}
@@ -69,23 +72,35 @@ const Container = styled.div`
 `;
 const Title = styled.div`
   background: white;
+  display: flex;
+  align-items: center;
   & p {
-    padding: 20px;
+    display:inline-block;
     width: 200px;
     height: 100%;
     text-align: center;
     line-height: 100%;
     border-bottom: 3px solid #ee4d2d;
     color: #ee4d2d;
+    padding:20px;
+  }
+  & img{
+    display:inline-block;
+    width: 200px; 
+    height: 100%;
   }
 `;
 const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  min-height: calc(100vh - 11.25rem);
+  margin-top:20px;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 10px;
+  ${mediaQueryDesktop(`grid-template-columns: repeat(5,1fr);`)}
+  ${mediaQueryTablet(`grid-template-columns: repeat(4,1fr);`)}
+  ${mediaQueryTabletPortrait(`grid-template-columns: repeat(3,1fr);`)}
+  ${mediaQueryMobile(`grid-template-columns: repeat(2,1fr);`)}
 `;
-// export const DATAs = [
+// export const products = [
 //   {
 //     title:
 //       "Mũ lưỡi trai ❤️ Nón kết thêu chữ Memorie phong cách Ulzzang form unisex nam nữ N01",
