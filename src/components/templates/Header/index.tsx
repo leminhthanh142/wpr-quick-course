@@ -4,7 +4,6 @@ import { Navbar } from "../../UI/organisms/NavBar";
 import { Search } from "../../UI/mocules/SearchBox";
 import {
   mediaQueryTabletPortrait,
-  mediaQueryDesktop,
   mediaQueryMobile,
   mediaQueryTablet,
 } from "../../../shared/media";
