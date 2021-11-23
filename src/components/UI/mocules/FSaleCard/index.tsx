@@ -48,11 +48,13 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
   align-items: center;
   text-align: center;
   position: relative;
+
   & .img-wrapper {
     position: relative;
     width: 173px;
     height: 173px;
     margin: 5px auto;
+
     .discount-overlay {
       position: absolute;
       z-index: 2;
@@ -64,6 +66,7 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
       background-size: contain;
       background-repeat: no-repeat;
     }
+
     .product {
       background-image: ${(props) => `url(${props.productImg})`};
       background-size: contain;
@@ -73,6 +76,7 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
       background-position: 50%;
     }
   }
+  
   & .price-text {
     color: #ee4d2d;
     font-size: 1.5rem;

@@ -17,6 +17,7 @@ const DiscountTag: React.FC<{ discount?: number }> = ({ discount }) => (
 export default DiscountTag;
 const Tag = styled.div`
   position: absolute;
+  text-align:center;
   top: 0;
   right: 0;
   transform: translateX(10%);
