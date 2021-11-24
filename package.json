@@ -31,7 +31,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "yarn run eslint --fix \"**/*.{ts,tsx}\"",
-    "lint": "yarn run eslint \"**/*.{ts,tsx}\""
+    "lint": "yarn run eslint \"**/*.{ts,tsx}\"",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -39,7 +40,7 @@
     }
   },
   "lint-staged": {
-    ".js": [
+    "*.{ts,tsx,js,jsx}": [
       "yarn lint:fix",
       "yarn lint"
     ]
