@@ -6,27 +6,37 @@ import { IconSearch } from "../../../sources/IconSearch";
 import { IconCart } from "../../../sources/IconCart";
 import { mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
 
-export const Search = () => (
-  <HeaderSearch>
-    <Link to="/">
-      <Logo color="#fff" />
-    </Link>
-    <SearchBar>
-      <Input placeholder="Nhập để tìm kiếm sản phẩm" />
-      <IconSearch color="#fb5533" />
-    </SearchBar>
-    <CartContainer>
-      <IconCart />
-      <Items>
-        <img
-          src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png"
-          alt=""
-        />
-        <p>Chưa Có Sản Phẩm</p>
-      </Items>
-    </CartContainer>
-  </HeaderSearch>
-);
+interface SearchType {
+  onSearch: (text: string) => void
+}
+
+export const Search = ({ onSearch }: SearchType) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.value) return;
+    onSearch(e.target.value);
+  };
+  return (
+    <HeaderSearch>
+      <Link to="/">
+        <Logo color="#fff" />
+      </Link>
+      <SearchBar>
+        <Input placeholder="Nhập để tìm kiếm sản phẩm" onChange={handleSearch} />
+        <IconSearch color="#fb5533" />
+      </SearchBar>
+      <CartContainer>
+        <IconCart />
+        <Items>
+          <img
+            src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/9bdd8040b334d31946f49e36beaf32db.png"
+            alt=""
+          />
+          <p>Chưa Có Sản Phẩm</p>
+        </Items>
+      </CartContainer>
+    </HeaderSearch>
+  );
+};
 
 const fadeIn = keyframes`
   0% {
