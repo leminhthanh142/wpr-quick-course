@@ -1,49 +1,29 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import Button from "../../atoms/Buttons";
-import { TopCard } from "../../mocules/TopSearchCard";
+import { TopCard } from "../../../mocules/HomeCompnents/TopSearchCard";
+import { NextButton, PrevButton } from "../../../atoms/Buttons";
+import {
+  scrollLeft,
+  scrollRight,
+} from "../../../../../GlobalFunctions/SliderScroll";
 
 export const TopSearchBar = () => {
   const [onPrev, setOnPrev] = useState(true);
-  const scrollLeft = () => {
-    const slider = document.querySelector(".topSearchScrollHidden");
-    slider!.scrollLeft = 0;
-    setOnPrev(true);
-  };
-  const scrollRight = () => {
-    const slider = document.querySelector(".topSearchScrollHidden");
-    slider!.scrollLeft = slider!.scrollWidth;
-    setOnPrev(false);
-  };
-  useEffect(() => {
-    const prevBtn = document.querySelector(".top-btn-left.top-btn");
-    const nextBtn = document.querySelector(".top-btn-right.top-btn");
-    if (onPrev) {
-      prevBtn!.setAttribute("style", "opacity: 0");
-      nextBtn!.setAttribute("style", "opacity: 1");
-    } else {
-      prevBtn!.setAttribute("style", "opacity: 1");
-      nextBtn!.setAttribute("style", "opacity: 0");
-    }
-  });
   return (
     <Container className="catagory">
       <div className="title">
         <p>TÌM KIẾM HÀNG ĐẦU</p>
       </div>
-      <div className="topSearchScrollHidden">
-        <Button
-          onClick={scrollLeft}
-          className="top-btn-left top-btn"
-          isPrevButton
-          position="0"
-        />
-        <Button
-          onClick={scrollRight}
-          className="top-btn-right top-btn"
-          isPrevButton={false}
-          position="100%"
-        />
+      <div className="scrollHidden">
+        {onPrev ? (
+          <NextButton
+            onClick={(e: any) => scrollRight(e, () => setOnPrev(false))}
+          />
+        ) : (
+          <PrevButton
+            onClick={(e: any) => scrollLeft(e, () => setOnPrev(true))}
+          />
+        )}
         <Grid columns={DATAs.length}>
           {DATAs.map((data, i) => (
             <TopCard
@@ -73,19 +53,10 @@ const Container = styled.div`
       color: #ee4d2d;
     }
   }
-  & .topSearchScrollHidden {
-    overflow-x: scroll;
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  & .top-btn {
-    z-index: 10;
-  }
-  &:hover .top-btn {
+  &:hover .btn {
     height: 50px;
     width: 50px;
-    transform: translate(-50%, 0);
+    transform: scale3d(2);
     svg {
       height: 1em;
       width: 1em;

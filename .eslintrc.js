@@ -43,6 +43,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/require-default-props": "off",
     "no-unused-vars": "off",
+    "react/button-has-type": "off",
   },
   settings: {
     "import/parsers": {

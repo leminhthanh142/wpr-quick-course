@@ -8,32 +8,23 @@ export const GlobalStyle = createGlobalStyle`
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
   transition:0.2s linear;
-}
-
+  }
   html {
     background: #eee;
     height: 100vh;
   }
-.swiper-slide {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
   li {
     list-style:none;
   }
-
   a {
     text-decoration:none;
   }
-
+  svg {
+    pointer-events: all;
+  }
   .swiper-container {
     height: 100%;
   }
-
   .swiper-slide {
     width: 100%;
     height: 100%;
@@ -42,4 +33,11 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
   }
+  .scrollHidden {
+    overflow-x: scroll;
+  }
+  .scrollHidden::-webkit-scrollbar{
+      display: none;
+  }
+
 `;

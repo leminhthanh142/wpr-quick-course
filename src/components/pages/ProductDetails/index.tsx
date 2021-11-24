@@ -5,6 +5,9 @@ import styled from "styled-components/macro";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
+import { SuggestionSlider } from "../../UI/organisms/DetailPageComponents/SuggestionSlider";
+import { Counter } from "../../UI/atoms/Counter";
+import { ProductPreviewSlider } from "../../UI/mocules/DetailPageComponents/ProductPreviewSlider";
 
 type Params = {
   id: string;
@@ -23,7 +26,7 @@ export const ProductDetails = () => {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`
+        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`,
       );
       setData(res.data);
     } catch (err) {

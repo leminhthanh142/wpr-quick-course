@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import LeftArrow from "../../../sources/LeftArrow";
-import RightArrow from "../../../sources/RightArrow";
+import LeftArrow from "../../../../sources/LeftArrow";
+import RightArrow from "../../../../sources/RightArrow";
 
-const ProductPreviewSlider: React.FC<{ images: string[] }> = ({ images }) => {
+export const ProductPreviewSlider: React.FC<{ images: string[] }> = ({
+  images,
+}) => {
   const [photos, setPhotos] = useState<string[]>([]);
   const [index, setIndex] = useState<number>(0);
+
   useEffect(() => {
     setPhotos(images.slice(index, index + 5));
+    console.log(photos, images);
   }, [index]);
+
+  const handleClickLeft = () => (index < 0 ? setIndex(0) : setIndex(index - 1));
+  const handleClickRight = () => {
+    const IMG_LENGTH = images.length;
+    return index === IMG_LENGTH
+      ? setIndex(IMG_LENGTH - 6)
+      : setIndex(index - 1);
+  };
+
   return (
     <Container>
-      <span onClick={() => setIndex(index - 1)} className="left-btn">
+      <span onClick={handleClickLeft} className="left-btn">
         <LeftArrow />
       </span>
       <ImgWrapper>
@@ -19,7 +32,7 @@ const ProductPreviewSlider: React.FC<{ images: string[] }> = ({ images }) => {
           <img alt="item" src={photo} />
         ))}
       </ImgWrapper>
-      <span onClick={() => setIndex(index + 1)} className="right-btn">
+      <span onClick={handleClickRight} className="right-btn">
         <RightArrow />
       </span>
     </Container>

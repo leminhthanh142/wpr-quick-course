@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components/macro";
 import Popup from "../../UI/atoms/PopupAd";
-import AdPanel from "../../UI/organisms/PrimaryAd";
-import { Catagories } from "../../UI/organisms/Catagories";
-import TrendingPanel from "../../UI/organisms/TrendingPanel";
-import { HomePanel } from "../../UI/organisms/HomePanel";
-import { FlashSalePanel } from "../../UI/organisms/FlashSale";
-import CompositeAds from "../../UI/organisms/SecondaryAd";
+import AdPanel from "../../UI/organisms/HomeComonents/PrimaryAd";
+import { Catagories } from "../../UI/organisms/HomeComonents/Catagories";
+import TrendingPanel from "../../UI/organisms/HomeComonents/TrendingPanel";
+import { HomePanel } from "../../UI/organisms/HomeComonents/HomePanel";
+import { FlashSalePanel } from "../../UI/organisms/HomeComonents/FlashSale";
+import CompositeAds from "../../UI/organisms/HomeComonents/SecondaryAd";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
-import { TopSearchBar } from "../../UI/organisms/TopSearchPanel";
-import { Suggestion } from "../../UI/organisms/SuggestPanel";
+import { TopSearchBar } from "../../UI/organisms/HomeComonents/TopSearchPanel";
+import { Suggestion } from "../../UI/organisms/HomeComonents/SuggestPanel";
 
 export const HomePage = () => (
   <>

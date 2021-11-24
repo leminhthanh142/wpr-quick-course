@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
-import SuggestCard from "../../mocules/SuggestCard";
-import { ProductData } from "../../../../types/product";
+import SuggestCard from "../../../mocules/SuggestCard";
+import { ProductData } from "../../../../../types/product";
 // eslint-disable-next-line object-curly-newline
-import { mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
+import {
+  mediaQueryDesktop,
+  mediaQueryTablet,
+  mediaQueryTabletPortrait,
+  mediaQueryMobile,
+} from "../../../../../shared/media";
 
 export const Suggestion = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
@@ -15,9 +20,10 @@ export const Suggestion = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product`);
+      const res = await axios.get(
+        `https://619a6e572782760017445234.mockapi.io/product`,
+      );
       setProducts(res.data);
-      console.log(res.data);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
@@ -28,7 +34,10 @@ export const Suggestion = () => {
     <Container>
       <Title>
         <p>GỢI Ý HÔM NAY</p>
-        <img src="https://cf.shopee.vn/file/2163de8eb4ee4c25db0c9ba6f5d47cba" alt="sale-tab" />
+        <img
+          src="https://cf.shopee.vn/file/2163de8eb4ee4c25db0c9ba6f5d47cba"
+          alt="sale-tab"
+        />
       </Title>
       <Grid>
         {products.map((item) => (
@@ -76,25 +85,25 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   & p {
-    display:inline-block;
+    display: inline-block;
     width: 200px;
     height: 100%;
     text-align: center;
     line-height: 100%;
     border-bottom: 3px solid #ee4d2d;
     color: #ee4d2d;
-    padding:20px;
+    padding: 20px;
   }
-  & img{
-    display:inline-block;
-    width: 200px; 
+  & img {
+    display: inline-block;
+    width: 200px;
     height: 100%;
   }
 `;
 const Grid = styled.div`
-  margin-top:20px;
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
   ${mediaQueryDesktop(`grid-template-columns: repeat(5,1fr);`)}
   ${mediaQueryTablet(`grid-template-columns: repeat(4,1fr);`)}

@@ -1,47 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components/macro";
-import { ProductCard } from "../../mocules/ProductCard";
-import Button from "../../atoms/Buttons";
+import { ProductCard } from "../../../mocules/HomeCompnents/ProductCard";
+import { NextButton, PrevButton } from "../../../atoms/Buttons";
+import {
+  scrollLeft,
+  scrollRight,
+} from "../../../../../GlobalFunctions/SliderScroll";
 
 export const Catagories = () => {
   const [onPrev, setOnPrev] = useState(true);
-  const scrollLeft = () => {
-    const slider = document.querySelector(".catagoryScrolHidden");
-    slider!.scrollLeft = 0;
-    setOnPrev(true);
-  };
-  const scrollRight = () => {
-    const slider = document.querySelector(".catagoryScrolHidden");
-    slider!.scrollLeft = slider!.scrollWidth;
-    setOnPrev(false);
-  };
-  useEffect(() => {
-    const prevBtn = document.querySelector(".btn-left.btn");
-    const nextBtn = document.querySelector(".btn-right.btn");
-    if (onPrev) {
-      prevBtn!.setAttribute("style", "opacity: 0");
-      nextBtn!.setAttribute("style", "opacity: 1");
-    } else {
-      prevBtn!.setAttribute("style", "opacity: 1");
-      nextBtn!.setAttribute("style", "opacity: 0");
-    }
-  });
   return (
     <Container className="catagory">
       <p className="title">DANH MỤC</p>
-      <div className="catagoryScrolHidden">
-        <Button
-          onClick={scrollLeft}
-          className="btn-left btn"
-          isPrevButton
-          position="0"
-        />
-        <Button
-          onClick={scrollRight}
-          className="btn-right btn"
-          isPrevButton={false}
-          position="100%"
-        />
+      <div className="scrollHidden">
+        {onPrev ? (
+          <NextButton
+            onClick={(e: any) => scrollRight(e, () => setOnPrev(false))}
+          />
+        ) : (
+          <PrevButton
+            onClick={(e: any) => scrollLeft(e, () => setOnPrev(true))}
+          />
+        )}
         <Grid>
           {DATAs.map((data, i) => (
             <ProductCard
@@ -69,16 +49,10 @@ const Container = styled.div`
     color: gray;
     padding: 20px;
   }
-  & .catagoryScrolHidden {
-    overflow-x: scroll;
-    ::-webkit-scrollbar {
-      display: none;
-    }
-  }
   &:hover .btn {
     height: 50px;
     width: 50px;
-    transform: translate(-50%, 0);
+    transform: scale3d(2);
     svg {
       height: 1em;
       width: 1em;
