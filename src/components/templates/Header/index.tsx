@@ -20,7 +20,6 @@ export const Header = ({ color }: HeaderProps) => {
   const [searchText, setSearchText] = useState("");
 
   const handleSearchText = (text: string) => {
-    if (!text) return;
     setSearchText(text);
   };
 
