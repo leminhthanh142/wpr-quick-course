@@ -23,7 +23,7 @@ export const ProductDetails = () => {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`
+        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`,
       );
       setData(res.data);
     } catch (err) {

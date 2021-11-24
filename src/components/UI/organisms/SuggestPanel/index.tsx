@@ -17,7 +17,6 @@ export const Suggestion = () => {
     try {
       const res = await axios.get(`https://619a6e572782760017445234.mockapi.io/product`);
       setProducts(res.data);
-      console.log(res.data);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
