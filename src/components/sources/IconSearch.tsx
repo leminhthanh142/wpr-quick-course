@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { mediaQueryMobile } from "../../shared/media";
 
 type IconSearchProps = {
   color?: string;
@@ -28,4 +29,16 @@ const IconSearchWrapper = styled.div`
     background-color: #fb6445;
     cursor: pointer;
   }
+
+  ${mediaQueryMobile(`
+    background: transparent;
+    width: unset;
+    top: 0;
+    left: 0;
+
+    & svg {
+      width: 36px;
+      height: 36px;
+    }
+  `)}
 `;

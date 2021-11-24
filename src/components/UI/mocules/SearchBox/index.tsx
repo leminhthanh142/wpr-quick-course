@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Logo } from "../../../sources/Logo";
 import { IconSearch } from "../../../sources/IconSearch";
 import { IconCart } from "../../../sources/IconCart";
+import { mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
 
 export const Search = () => (
   <HeaderSearch>
@@ -40,16 +41,29 @@ const HeaderSearch = styled.div`
   display: flex;
   align-items: center;
   height: 94px;
+  position: relative;
+  
+  ${mediaQueryMobile(`
+    justify-content: space-around;
+  `)}
 `;
 
 const SearchBar = styled.div`
-  flex: 1;
+  width: 100%;
   height: 40px;
   background-color: #fff;
   border-radius: 2px;
   position: relative;
   display: flex;
   justify-content: space-around;
+
+  ${mediaQueryTabletPortrait(`
+    margin-left: 20px;
+  `)}
+
+  ${mediaQueryMobile(`
+    width: 0%;
+  `)}
 `;
 
 const Input = styled.input`
@@ -58,6 +72,10 @@ const Input = styled.input`
   border: none;
   outline: none;
   padding: 0 8px;
+
+  ${mediaQueryMobile(`
+    display: none;
+  `)}
 `;
 
 const Items = styled.div`

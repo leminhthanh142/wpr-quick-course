@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { LeftNavbar } from "../../mocules/LeftNavBar";
 import { RightNavbar } from "../../mocules/RightNavBar";
+import { mediaQueryMobile, mediaQueryTablet, mediaQueryTabletPortrait } from "../../../../shared/media";
 
 export const Navbar = () => (
   <Nav>
@@ -18,6 +19,16 @@ export const Navbar = () => (
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
+
+  ${mediaQueryTabletPortrait(`
+    display: none;
+    max-width: 800px;
+    width: 100%;
+  `)}
+
+  ${mediaQueryMobile(`
+    display: none;
+  `)}
 `;
 
 const NavbarList = styled.ul`
