@@ -1,49 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { Logo } from "../../sources/Logo";
 import { Modal } from "../../UI/mocules/modal";
 import { Footer } from "../../templates/Footer";
 
-export const SignUpPage = () => (
-  <Wrapper>
-    <Header>
-      <Link to="/">
-        <Logo color="#ee4d2d" />
-      </Link>
-      <p>Đăng ký</p>
-    </Header>
-    <Body>
-      <Modal title="Đăng ký">
-        <div className="input">
-          <input placeholder="Số điện thoại" />
-        </div>
-        <button type="submit">TIẾP THEO</button>
-        <Seperate>
-          <Line />
-          <span>HOẶC</span>
-          <Line />
-        </Seperate>
-        <div style={{ marginBottom: "30px", textAlign: "center" }}>
-          <span>Facebook</span>
-          <span>Google</span>
-          <span>Apple</span>
-        </div>
-        <Text>
-          Bằng việc đăng kí, bạn đã đồng ý với Shopee về
-          <Link to="/">Điều khoản dịch vụ</Link>
-          &
-          <Link to="/">Chính sách bảo mật</Link>
-        </Text>
-        <StyledText>
-          Bạn đã có tài khoản?
-          <Link to="/signin">Đăng nhập</Link>
-        </StyledText>
-      </Modal>
-    </Body>
-    <Footer />
-  </Wrapper>
-);
+export const SignUpPage = () => {
+  const [phone, setPhone] = useState<string>("");
+
+  return (
+    <Wrapper>
+      <Header>
+        <Link to="/">
+          <Logo color="#ee4d2d" />
+        </Link>
+        <p>Đăng ký</p>
+      </Header>
+      <Body>
+        <Modal title="Đăng ký">
+          <div className="input">
+            <input
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Số điện thoại"
+            />
+          </div>
+          <button type="submit" disabled={phone.length <= 0}>
+            TIẾP THEO
+          </button>
+          <Seperate>
+            <Line />
+            <span>HOẶC</span>
+            <Line />
+          </Seperate>
+          <div style={{ marginBottom: "30px", textAlign: "center" }}>
+            <span>Facebook</span>
+            <span>Google</span>
+            <span>Apple</span>
+          </div>
+          <Text>
+            Bằng việc đăng kí, bạn đã đồng ý với Shopee về
+            <Link to="/">Điều khoản dịch vụ</Link>
+            &
+            <Link to="/">Chính sách bảo mật</Link>
+          </Text>
+          <StyledText>
+            Bạn đã có tài khoản?
+            <Link to="/signin">Đăng nhập</Link>
+          </StyledText>
+        </Modal>
+      </Body>
+      <Footer />
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div``;
 
@@ -79,6 +89,12 @@ const Body = styled.div`
     color: #fff;
     font-weight: 500;
     font-size: 16px;
+    cursor: pointer;
+  }
+
+  & button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
 
@@ -106,14 +122,14 @@ const Text = styled.div`
   font-size: 12px;
   text-align: center;
   margin-bottom: 30px;
-  
+
   & a {
     display: inline-block;
     color: #ee4d2d;
   }
-  `;
+`;
 
 const StyledText = styled(Text)`
-color: #bbb;
+  color: #bbb;
   font-size: 16px;
 `;

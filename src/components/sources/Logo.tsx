@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { mediaQueryTabletPortrait, mediaQueryMobile } from "../../shared/media";
 
 type LogoProps = {
   color?: string;
