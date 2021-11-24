@@ -4,15 +4,12 @@ import axios from "axios";
 import SuggestCard from "../../../mocules/SuggestCard";
 import { ProductData } from "../../../../../types/product";
 // eslint-disable-next-line object-curly-newline
-import {
-  mediaQueryDesktop,
-  mediaQueryTablet,
-  mediaQueryTabletPortrait,
-  mediaQueryMobile,
-} from "../../../../../shared/media";
+import { mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
+import { useProductList } from "../../../../hooks/productContext";
 
 export const Suggestion = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
+  const { handleSetProductList } = useProductList();
 
   useEffect(() => {
     fetchProducts();
@@ -24,6 +21,7 @@ export const Suggestion = () => {
         `https://619a6e572782760017445234.mockapi.io/product`,
       );
       setProducts(res.data);
+      handleSetProductList(res.data);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);
