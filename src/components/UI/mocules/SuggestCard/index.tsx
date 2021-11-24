@@ -9,7 +9,7 @@ interface CardProps {
   price: number;
   productSold?: number;
   discountPercent?: number;
-  linkTo: string
+  linkTo: string;
 }
 
 const SuggestCard = ({
@@ -24,16 +24,16 @@ const SuggestCard = ({
     const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return result;
   };
-  const formatSold = (x:number) => (
-    ((x / 1000) >= 1) ? Math.round(x / 1000) : x
-  );
+  const formatSold = (x: number) => (x / 1000 >= 1 ? Math.round(x / 1000) : x);
   const formattedPrice = formatPrice(price);
   const sold = formatSold(productSold!);
   return (
-    <Container productImg={imgLink}>
+    <Container productImg={imgLink} className="card-wrapper">
       <StyledLink to={linkTo}>
         <div className="card">
-          {(discountPercent || discountPercent !== 0) && <DiscountTag discount={discountPercent} />}
+          {(discountPercent || discountPercent !== 0) && (
+            <DiscountTag discount={discountPercent} />
+          )}
           <div className="img-wrapper">
             <div className="product" />
           </div>
@@ -62,8 +62,7 @@ const SuggestCard = ({
 
 export default SuggestCard;
 const StyledLink = styled(Link)`
-  color:#555;
-
+  color: #555;
 `;
 const Container = styled.div<{ productImg: string; discountImg?: string }>`
   width: 100%;
@@ -76,53 +75,51 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
     align-items: center;
     position: relative;
     background: white;
-  }
-  & .img-wrapper {
-    position: relative;
-    width: 100%;
-    .discount-overlay {
-      position: absolute;
-      z-index: 2;
-      left: 50%;
+    .img-wrapper {
+      position: relative;
       width: 100%;
-      height: 100%;
-      transform: translateX(-50%);
-      background-image: ${(props) => `url(${props.discountImg})`};
-      background-size: contain;
-      background-repeat: no-repeat;
+      .discount-overlay {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-50%);
+        background-image: ${(props) => `url(${props.discountImg})`};
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .product {
+        background-image: ${(props) => `url(${props.productImg})`};
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        padding-top: 100%;
+      }
     }
-
-    .product {
-      background-image: ${(props) => `url(${props.productImg})`};
-      background-size: cover;
-      background-repeat: no-repeat;
+    .title {
       width: 100%;
-      padding-top: 100%;
+      height: 40px;
+      padding-left: 10px;
+      margin: 10px 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      white-space: nowrap;
     }
-  }
-  & .title {
-    width: 100%;
-    height: 40px;
-    padding-left: 10px;
-    margin: 10px 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    overflow-wrap: break-word;
-    white-space: nowrap;
-  }
-
-  & .info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 8px 0;
-    padding: 0 15px;
-    .price-text {
-      color: #ee4d2d;
-    }
-    .sold {
-      font-size: 0.75em;
-      color: #555555c3;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 8px 0;
+      padding: 0 15px;
+      .price-text {
+        color: #ee4d2d;
+      }
+      .sold {
+        font-size: 0.75em;
+        color: #555555c3;
+      }
     }
   }
 

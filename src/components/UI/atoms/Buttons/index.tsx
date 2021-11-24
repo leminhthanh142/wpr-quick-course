@@ -4,19 +4,16 @@ import LeftArrow from "../../../sources/LeftArrow";
 import RightArrow from "../../../sources/RightArrow";
 
 interface ButtonProps {
-  isPrevButton: boolean;
-  position: string;
-  className?: string;
   onClick?: any;
 }
-const Button: React.FC<ButtonProps> = ({
-  className,
-  position,
-  isPrevButton,
-  onClick,
-}) => (
-  <Btn onClick={onClick} className={className} position={position}>
-    {isPrevButton ? <LeftArrow /> : <RightArrow />}
+export const NextButton = ({ onClick }: ButtonProps) => (
+  <Btn className="btn" position="100%" onClick={onClick}>
+    <RightArrow />
+  </Btn>
+);
+export const PrevButton = ({ onClick }: ButtonProps) => (
+  <Btn className="btn" position="0" onClick={onClick}>
+    <LeftArrow />
   </Btn>
 );
 const Btn = styled.div<{ position: string }>`
@@ -36,7 +33,7 @@ const Btn = styled.div<{ position: string }>`
   box-shadow: rgb(0 0 0 / 12%) 0 1px 12px 0;
   transition: 0.2s ease;
   left: ${(props) => props.position};
-  transform: translate(-50%, 50%);
+  transform: translate(-50%,0);
   cursor: pointer;
+  z-index: 1;
 `;
-export default Button;
