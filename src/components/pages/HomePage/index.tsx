@@ -9,11 +9,12 @@ import { FlashSalePanel } from "../../UI/organisms/HomeComonents/FlashSale";
 import CompositeAds from "../../UI/organisms/HomeComonents/SecondaryAd";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
-import { TopSearchBar } from "../../UI/organisms/HomeComonents/TopSearchPanel";
-import { Suggestion } from "../../UI/organisms/HomeComonents/SuggestPanel";
+import { TopSearchBar } from "../../UI/organisms/TopSearchPanel";
+import { Suggestion } from "../../UI/organisms/SuggestPanel";
+import { ProductListContextProvider } from "../../../hooks/productContext";
 
 export const HomePage = () => (
-  <>
+  <ProductListContextProvider>
     <Popup />
     <Header />
     <Body>
@@ -31,7 +32,7 @@ export const HomePage = () => (
       </Shrink>
     </Body>
     <Footer />
-  </>
+  </ProductListContextProvider>
 );
 
 const Hightlight = styled.div`

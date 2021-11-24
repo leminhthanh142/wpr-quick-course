@@ -10,9 +10,11 @@ import {
   mediaQueryTabletPortrait,
   mediaQueryMobile,
 } from "../../../../../shared/media";
+import { useProductList } from "../../../../../hooks/productContext";
 
 export const Suggestion = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
+  const { handleSetProductList } = useProductList();
 
   useEffect(() => {
     fetchProducts();
@@ -24,6 +26,7 @@ export const Suggestion = () => {
         `https://619a6e572782760017445234.mockapi.io/product`,
       );
       setProducts(res.data);
+      handleSetProductList(res.data);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);

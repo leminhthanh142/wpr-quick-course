@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import styled from "styled-components/macro";
 import { Navbar } from "../../UI/organisms/NavBar";
 import { Search } from "../../UI/mocules/SearchBox";
@@ -7,19 +7,37 @@ import {
   mediaQueryMobile,
   mediaQueryTablet,
 } from "../../../shared/media";
+import { SearchList } from "../../UI/mocules/SearchList";
+import { useProductList } from "../../../hooks/productContext";
+import { ProductData } from "../../../types/product";
 
 type HeaderProps = {
   color?: string;
 };
 
-export const Header = ({ color }: HeaderProps) => (
-  <HeaderStyle color={color}>
-    <Grid>
-      <Navbar />
-      <Search />
-    </Grid>
-  </HeaderStyle>
-);
+export const Header = ({ color }: HeaderProps) => {
+  const { productList } = useProductList();
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchText = (text: string) => {
+    setSearchText(text);
+  };
+
+  const filteredList = useMemo(() => productList.filter((product) => {
+    if (!searchText) return product;
+    return product.title.toLowerCase().includes(searchText.toLowerCase());
+  }), [productList, searchText]);
+
+  return (
+    <HeaderStyle color={color}>
+      <Grid>
+        <Navbar />
+        <Search onSearch={handleSearchText} />
+        <SearchList list={filteredList} />
+      </Grid>
+    </HeaderStyle>
+  );
+};
 
 const HeaderStyle = styled.header`
   height: 120px;
