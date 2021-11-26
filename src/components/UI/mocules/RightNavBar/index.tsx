@@ -1,6 +1,10 @@
 import React from "react";
-import styled, { keyframes } from "styled-components/macro";
-import { Link } from "react-router-dom";
+import styled, {
+  keyframes,
+} from "styled-components/macro";
+import {
+  Link,
+} from "react-router-dom";
 
 export const RightNavbar = () => (
   <RightNavbarItems>
@@ -16,9 +20,12 @@ export const RightNavbar = () => (
         </NotificationHeader>
 
         <ButtonContainer>
-          <Button>Đăng ký</Button>
-
-          <Button>Đăng nhập</Button>
+          <Button>
+            <Link to="/signup">Đăng ký</Link>
+          </Button>
+          <Button>
+            <Link to="/signin">Đăng nhập</Link>
+          </Button>
         </ButtonContainer>
       </NotificationContainer>
     </RightNavbarItems>
@@ -98,14 +105,17 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   border: none;
   flex: 1;
-  font-size: 14px;
-  color: #333;
-  background-color: #f5f5f5;
 
-  &:hover {
+  & a {
+    font-size: 14px;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 12px 40px;
+  }
+
+  & a:hover {
     background-color: #eee;
     color: #ee4d2d;
-    cursor: pointer;
   }
 `;
 

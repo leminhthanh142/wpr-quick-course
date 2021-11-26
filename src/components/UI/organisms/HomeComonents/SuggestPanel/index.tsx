@@ -4,10 +4,7 @@ import axios from "axios";
 import SuggestCard from "../../../mocules/SuggestCard";
 import { ProductData } from "../../../../../types/product";
 import {
-  mediaQueryDesktop,
-  mediaQueryTablet,
-  mediaQueryTabletPortrait,
-  mediaQueryMobile,
+  mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile,
 } from "../../../../../shared/media";
 import { useProductList } from "../../../../../hooks/productContext";
 
