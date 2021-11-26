@@ -14,6 +14,7 @@ export const App = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/signin" component={SignInPage} />
+      <Route exact path="/support" component={SupportPage} />
       <Route path="/product/:id" component={ProductDetails} />
       <Redirect from="*" to="/" />
     </Switch>

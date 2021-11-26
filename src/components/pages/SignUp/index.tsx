@@ -47,6 +47,8 @@ export const SignUpPage = () => {
           <StyledText>
             Bạn đã có tài khoản?
             <Link to="/signin">Đăng nhập</Link>
+            <br />
+            <Link to="/support" className="support">Cần trợ giúp</Link>
           </StyledText>
         </Modal>
       </Body>
@@ -126,6 +128,11 @@ const Text = styled.div`
   & a {
     display: inline-block;
     color: #ee4d2d;
+  }
+
+  & .support {
+    font-size: 14px;
+    margin-top: 30px;
   }
 `;
 
