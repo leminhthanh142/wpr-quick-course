@@ -1,40 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import LeftArrow from "../../../../sources/LeftArrow";
-import RightArrow from "../../../../sources/RightArrow";
+import LeftArrowWhite from "../../../../sources/LeftArrowWhite";
+import RightArrowWhite from "../../../../sources/RightArrowWhite";
 
-export const ProductPreviewSlider: React.FC<{ images: string[] }> = ({
-  images,
-}) => {
+export const ProductPreviewSlider: React.FC<{
+  imageSource: string[];
+  handleMouseOver: any;
+}> = ({ imageSource, handleMouseOver }) => {
   const [photos, setPhotos] = useState<string[]>([]);
   const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    setPhotos(images.slice(index, index + 5));
-    console.log(photos, images);
+    setPhotos(imageSource.slice(index, index + 5));
   }, [index]);
 
-  const handleClickLeft = () => (index < 0 ? setIndex(0) : setIndex(index - 1));
+  const handleClickLeft = () => {
+    if (index <= 0) return;
+    setIndex(index - 1);
+  };
+
   const handleClickRight = () => {
-    const IMG_LENGTH = images.length;
-    return index === IMG_LENGTH
-      ? setIndex(IMG_LENGTH - 6)
-      : setIndex(index - 1);
+    const IMG_LENGTH = imageSource.length;
+    if (index >= IMG_LENGTH - 5) return;
+    setIndex(index + 1);
   };
 
   return (
     <Container>
-      <span onClick={handleClickLeft} className="left-btn">
-        <LeftArrow />
-      </span>
-      <ImgWrapper>
-        {photos.map((photo) => (
-          <img alt="item" src={photo} />
+      {imageSource.length >= photos.length && (
+        <div>
+          <span onClick={handleClickLeft} className="left-btn">
+            <LeftArrowWhite />
+          </span>
+          <span onClick={handleClickRight} className="right-btn">
+            <RightArrowWhite />
+          </span>
+        </div>
+      )}
+      <ImgWrapper columns={photos.length}>
+        {photos.map((photo, i) => (
+          <img
+            key={i}
+            alt="item"
+            src={photo}
+            onFocus={handleMouseOver}
+            onMouseOver={handleMouseOver}
+          />
         ))}
       </ImgWrapper>
-      <span onClick={handleClickRight} className="right-btn">
-        <RightArrow />
-      </span>
     </Container>
   );
 };
@@ -42,10 +55,22 @@ const Container = styled.div`
   position: relative;
   display: flex;
   width: 100%;
+  margin-top: 10px;
   & span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background: #59595986;
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
   & .left-btn {
     left: 0;
@@ -54,11 +79,16 @@ const Container = styled.div`
     right: 0;
   }
 `;
-const ImgWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+const ImgWrapper = styled.div<{ columns: number }>`
+  display: grid;
+  grid-template-columns: ${(props) => `repeat(${props.columns}, 1fr)`};
+  gap: 0 5px;
   & img {
-    width: calc((100% / 5) - 10);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    :hover {
+      outline: 3px solid #ee4d2d;
+    }
   }
 `;

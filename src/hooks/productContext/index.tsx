@@ -21,7 +21,6 @@ export const ProductListContextProvider: React.FC = ({ children }) => {
   const [productList, setProductList] = useState<ProductData[]>([]);
 
   const handleSetProductList = (list: ProductData[]) => {
-    console.log("asdasd");
     setProductList(list);
   };
 
