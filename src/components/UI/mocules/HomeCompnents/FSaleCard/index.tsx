@@ -57,7 +57,7 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
 
     .discount-overlay {
       position: absolute;
-      z-index: 2;
+      z-index: 1;
       left: 50%;
       width: 173px;
       height: 173px;
@@ -76,7 +76,7 @@ const Container = styled.div<{ productImg: string; discountImg: string }>`
       background-position: 50%;
     }
   }
-  
+
   & .price-text {
     color: #ee4d2d;
     font-size: 1.5rem;

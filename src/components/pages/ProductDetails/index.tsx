@@ -5,9 +5,8 @@ import styled from "styled-components/macro";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
+import { ProductPreview } from "../../UI/organisms/DetailPageComponents/ProductPreview/index,";
 import { SuggestionSlider } from "../../UI/organisms/DetailPageComponents/SuggestionSlider";
-import { Counter } from "../../UI/atoms/counter";
-import { ProductPreviewSlider } from "../../UI/mocules/DetailPageComponents/ProductPreviewSlider";
 
 type Params = {
   id: string;
@@ -45,6 +44,8 @@ export const ProductDetails = () => {
       <div>{data?.productSold}</div>
       <div>{data?.discount}</div>
       <img src={data?.imgLink} alt="" />
+      <ProductPreview />
+      <SuggestionSlider suggestData="https://619b10c827827600174453aa.mockapi.io/shopee-products/product" />
       <Footer />
     </Container>
   );

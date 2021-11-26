@@ -33,7 +33,7 @@ const Btn = styled.div<{ position: string }>`
   box-shadow: rgb(0 0 0 / 12%) 0 1px 12px 0;
   transition: 0.2s ease;
   left: ${(props) => props.position};
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   cursor: pointer;
-  z-index: 1;
+  z-index: 5;
 `;

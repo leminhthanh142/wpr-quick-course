@@ -21,8 +21,6 @@ export const ProductListContextProvider: React.FC = ({ children }) => {
   const [productList, setProductList] = useState<ProductData[]>([]);
 
   const handleSetProductList = (list: ProductData[]) => {
-    // eslint-disable-next-line no-console
-    console.log("asdasd");
     setProductList(list);
   };
 
