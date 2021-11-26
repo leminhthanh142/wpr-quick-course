@@ -5,10 +5,8 @@ const DiscountTag: React.FC<{ discount?: number }> = ({ discount }) => (
   <Tag>
     <div>
       <div className="discountRate">
-        {" "}
         {discount}
         %
-        {" "}
       </div>
       GIẢM
     </div>

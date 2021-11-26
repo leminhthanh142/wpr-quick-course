@@ -4,7 +4,7 @@ import LeftArrow from "../../../sources/LeftArrow";
 import RightArrow from "../../../sources/RightArrow";
 
 interface ButtonProps {
-  onClick?: any;
+  onClick?: (e: React.MouseEvent) => void;
 }
 export const NextButton = ({ onClick }: ButtonProps) => (
   <Btn className="btn" position="100%" onClick={onClick}>

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-export const TopTag = () => <Tag />;
-const Tag = styled.div`
+export const TopTag = styled.div`
   position: absolute;
   top: 0;
   left: 0;

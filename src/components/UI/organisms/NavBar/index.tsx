@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { LeftNavbar } from "../../mocules/LeftNavBar";
 import { RightNavbar } from "../../mocules/RightNavBar";
-import { mediaQueryMobile, mediaQueryTablet, mediaQueryTabletPortrait } from "../../../../shared/media";
+import { mediaQueryMobile, mediaQueryTabletPortrait } from "../../../../shared/media";
 
 export const Navbar = () => (
   <Nav>

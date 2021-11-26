@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import { ProductCard } from "../../../mocules/HomeCompnents/ProductCard";
 import { NextButton, PrevButton } from "../../../atoms/Buttons";
@@ -15,11 +15,17 @@ export const Catagories = () => {
       <div className="scrollHidden">
         {onPrev ? (
           <NextButton
-            onClick={(e: any) => scrollRight(e, () => setOnPrev(false))}
+            onClick={(e: React.MouseEvent) => {
+              scrollRight(e);
+              setOnPrev(false);
+            }}
           />
         ) : (
           <PrevButton
-            onClick={(e: any) => scrollLeft(e, () => setOnPrev(true))}
+            onClick={(e: React.MouseEvent) => {
+              scrollLeft(e);
+              setOnPrev(true);
+            }}
           />
         )}
         <Grid>
