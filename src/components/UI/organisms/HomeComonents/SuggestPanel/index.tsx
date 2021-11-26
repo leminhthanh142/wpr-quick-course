@@ -3,9 +3,10 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import SuggestCard from "../../../mocules/SuggestCard";
 import { ProductData } from "../../../../../types/product";
-// eslint-disable-next-line object-curly-newline
-import { mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
-import { useProductList } from "../../../../hooks/productContext";
+import {
+  mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile,
+} from "../../../../../shared/media";
+import { useProductList } from "../../../../../hooks/productContext";
 
 export const Suggestion = () => {
   const [products, setProducts] = useState<ProductData[]>([]);

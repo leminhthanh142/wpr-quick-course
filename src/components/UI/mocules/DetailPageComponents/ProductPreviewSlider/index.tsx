@@ -11,6 +11,7 @@ export const ProductPreviewSlider: React.FC<{ images: string[] }> = ({
 
   useEffect(() => {
     setPhotos(images.slice(index, index + 5));
+    // eslint-disable-next-line no-console
     console.log(photos, images);
   }, [index]);
 

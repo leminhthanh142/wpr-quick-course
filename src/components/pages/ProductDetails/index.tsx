@@ -6,7 +6,7 @@ import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
 import { SuggestionSlider } from "../../UI/organisms/DetailPageComponents/SuggestionSlider";
-import { Counter } from "../../UI/atoms/Counter";
+import { Counter } from "../../UI/atoms/counter";
 import { ProductPreviewSlider } from "../../UI/mocules/DetailPageComponents/ProductPreviewSlider";
 
 type Params = {
