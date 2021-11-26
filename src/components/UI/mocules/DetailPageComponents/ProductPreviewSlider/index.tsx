@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components/macro";
 import LeftArrowWhite from "../../../../sources/LeftArrowWhite";
 import RightArrowWhite from "../../../../sources/RightArrowWhite";
 

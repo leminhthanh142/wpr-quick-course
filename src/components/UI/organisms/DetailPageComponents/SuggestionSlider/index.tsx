@@ -32,11 +32,17 @@ export const SuggestionSlider: React.FC<{ suggestData: string }> = ({
       <div className="scrollHidden">
         {onPrev ? (
           <NextButton
-            onClick={(e: any) => scrollRight(e, () => setOnPrev(false))}
+            onClick={(e: React.MouseEvent) => {
+              scrollRight(e);
+              setOnPrev(false);
+            }}
           />
         ) : (
           <PrevButton
-            onClick={(e: any) => scrollLeft(e, () => setOnPrev(true))}
+            onClick={(e: React.MouseEvent) => {
+              scrollLeft(e);
+              setOnPrev(true);
+            }}
           />
         )}
         <Grid columns={products.length}>

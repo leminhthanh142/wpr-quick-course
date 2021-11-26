@@ -20,18 +20,14 @@ const SuggestCard = ({
   discountPercent,
   linkTo,
 }: CardProps) => {
-  const formatPrice = (x: number) => {
-    const result = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return result;
-  };
-  const formatSold = (x: number) => (x / 1000 >= 1 ? Math.round(x / 1000) : x);
-  const formattedPrice = formatPrice(price);
-  const sold = formatSold(productSold!);
+  const formatPrice = (productPrice: number) => productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const formatSold = (sold: number) => (sold / 1000 >= 1 ? Math.round(sold / 1000) : sold);
+
   return (
     <Container productImg={imgLink} className="card-wrapper">
       <StyledLink to={linkTo}>
         <div className="card">
-          {(discountPercent || discountPercent !== 0) && (
+          {discountPercent && (
             <DiscountTag discount={discountPercent} />
           )}
           <div className="img-wrapper">
@@ -41,12 +37,12 @@ const SuggestCard = ({
           <div className="info">
             <p className="price-text">
               <span className="unit">₫</span>
-              {formattedPrice}
+              {formatPrice(price)}
             </p>
             {productSold && (
             <p className="sold">
               Đã bán
-              {sold}
+              {formatSold(productSold)}
               k
             </p>
             )}
@@ -73,7 +69,6 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
     position: relative;
     flex-direction: column;
     align-items: center;
-    position: relative;
     background: white;
     .img-wrapper {
       position: relative;

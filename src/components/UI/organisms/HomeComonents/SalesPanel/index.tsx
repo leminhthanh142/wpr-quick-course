@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Poster } from "../../../mocules/HomeCompnents/Poster";
-import { mediaQueryDesktop, mediaQueryTablet } from "../../../../../shared/media";
 
 export const SalesPanel = () => (
   <Container>

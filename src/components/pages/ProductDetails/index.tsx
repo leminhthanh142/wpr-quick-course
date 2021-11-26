@@ -5,15 +5,13 @@ import styled from "styled-components/macro";
 import { Header } from "../../templates/Header";
 import { Footer } from "../../templates/Footer";
 import { ProductData } from "../../../types/product";
-import { ProductPreview } from "../../UI/organisms/DetailPageComponents/ProductPreview/index,";
+import { ProductPreview } from "../../UI/organisms/DetailPageComponents/ProductPreview";
 import { SuggestionSlider } from "../../UI/organisms/DetailPageComponents/SuggestionSlider";
 
 type Params = {
   id: string;
 };
-type amountType = {
-  amount: number;
-};
+
 export const ProductDetails = () => {
   const { id } = useParams<Params>();
   const [data, setData] = useState<ProductData>();
