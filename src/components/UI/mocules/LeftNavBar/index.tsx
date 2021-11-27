@@ -27,11 +27,11 @@ export const LeftNavbar = () => (
 
 const LeftNavbarData = [
   {
-    url: "https://banhang.shopee.vn",
+    url: "/",
     text: "Kênh Người Bán",
   },
   {
-    url: "https://shopee.vn/m/sell-on-shopee",
+    url: "/",
     title: "Trở thành Người bán Shopee",
     text: "Trở thành Người bán Shopee",
   },
@@ -46,15 +46,15 @@ const LeftNavbarData = [
 
 const AppImages = [
   {
-    url: "https://shopee.vn/web",
+    url: "/",
     src: "../app-store.png",
   },
   {
-    url: "https://shopee.vn/web",
+    url: "/",
     src: "../google-play.png",
   },
   {
-    url: "https://shopee.vn/web",
+    url: "/",
     src: "../app-gallery.png",
   },
 ];

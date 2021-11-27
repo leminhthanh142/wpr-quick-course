@@ -4,10 +4,7 @@ import axios from "axios";
 import SuggestCard from "../../../mocules/SuggestCard";
 import { ProductData } from "../../../../../types/product";
 import {
-  mediaQueryDesktop,
-  mediaQueryTablet,
-  mediaQueryTabletPortrait,
-  mediaQueryMobile,
+  mediaQueryDesktop, mediaQueryTablet, mediaQueryTabletPortrait, mediaQueryMobile,
 } from "../../../../../shared/media";
 import { useProductList } from "../../../../../hooks/productContext";
 
@@ -77,7 +74,7 @@ const Container = styled.div`
       box-shadow: 0 1px 1px 0 rgb(0 0 0 / 3%);
       :hover {
         background: #ddd;
-        border: solid 1px #bbb;
+        outline: solid 1px #bbb;
       }
     }
   }
