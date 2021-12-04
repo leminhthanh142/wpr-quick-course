@@ -43,10 +43,10 @@ export const Suggestion = () => {
           <SuggestCard
             key={item.id}
             title={item.title}
-            imgLink={item.imgLink}
+            imgLink={item.image}
             price={item.price}
-            productSold={item.productSold}
-            discountPercent={item.discount}
+            productSold={120}
+            discountPercent={20}
             linkTo={`/product/${item.id}`}
           />
         ))}

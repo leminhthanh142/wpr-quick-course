@@ -75,7 +75,7 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
       width: 100%;
       .discount-overlay {
         position: absolute;
-        z-index: 2;
+        z-index: 10;
         left: 50%;
         width: 100%;
         height: 100%;
@@ -86,7 +86,7 @@ const Container = styled.div<{ productImg: string; discountImg?: string }>`
       }
       .product {
         background-image: ${(props) => `url(${props.productImg})`};
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         width: 100%;
         padding-top: 100%;

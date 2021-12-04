@@ -50,10 +50,10 @@ export const SuggestionSlider: React.FC<{ suggestData: string }> = ({
             <SuggestCard
               key={item.id}
               title={item.title}
-              imgLink={item.imgLink}
+              imgLink={item.image}
               price={item.price}
-              productSold={item.productSold}
-              discountPercent={item.discount}
+              productSold={100}
+              discountPercent={20}
               linkTo={`/product/${item.id}`}
             />
           ))}
@@ -64,6 +64,7 @@ export const SuggestionSlider: React.FC<{ suggestData: string }> = ({
 };
 const Container = styled.div`
   position: relative;
+  
   &:hover .btn {
     height: 50px;
     width: 50px;

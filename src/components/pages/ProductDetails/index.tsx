@@ -23,7 +23,7 @@ export const ProductDetails = () => {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        `https://619b10c827827600174453aa.mockapi.io/shopee-products/product/${id}`,
+        `https://fakestoreapi.com/products/${id}`,
       );
       setData(res.data);
     } catch (err) {
@@ -41,7 +41,7 @@ export const ProductDetails = () => {
       <div>{data?.price}</div>
       <div>{data?.productSold}</div>
       <div>{data?.discount}</div>
-      <img src={data?.imgLink} alt="" />
+      <img src={data?.image} alt="" />
       <ProductPreview />
       <SuggestionSlider suggestData="https://619b10c827827600174453aa.mockapi.io/shopee-products/product" />
       <Footer />

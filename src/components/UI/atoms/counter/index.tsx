@@ -1,34 +1,38 @@
-import React, { useLayoutEffect, useState } from "react";
+/* eslint-disable no-param-reassign */
 import styled from "styled-components/macro";
+import React from "react";
+import { centerItem } from "../../../../shared/centerItemStyle";
 
-export const Counter = () => {
-  const [count, setCount] = useState<number>(1);
-  const handleDecrease = () => setCount(count - 1);
-  const handleIncrease = () => setCount(count + 1);
-  useLayoutEffect(() => {
-    if (count <= 0) setCount(1);
-  }, [count]);
+interface schema{
+ count:number;
+ onDecrease:any;
+ onIncrease:any;
+}
 
-  return (
-    <Container>
-      <button onClick={handleDecrease}>-</button>
+const Counter = ({ count, onDecrease, onIncrease }:schema) => (
+  <Container>
+    <div className="cover">
+      <button onClick={onDecrease}>-</button>
       <span className="currentValue">{count}</span>
-      <button onClick={handleIncrease}>+</button>
-    </Container>
-  );
-};
+      <button onClick={onIncrease}>+</button>
+    </div>
+  </Container>
+);
+export default Counter;
 const Container = styled.div`
-  display: flex;
+  ${centerItem()}
   text-align: center;
-  & button {
-    background: white;
-    padding: 3px 6px;
-    border: none;
-  }
-  & .currentValue {
-    width: 50px;
-    padding: 5px;
-    background: white;
-    margin: 0 5px;
-  }
+  .cover{
+    ${centerItem()}
+    button {
+      background: white;
+      padding: 4px 10px;
+      border:1px solid #ddd;
+    }
+    .currentValue {
+      padding: 4px 10px;
+      background: white;
+      border:1px solid #ddd;
+    }
+  } 
 `;

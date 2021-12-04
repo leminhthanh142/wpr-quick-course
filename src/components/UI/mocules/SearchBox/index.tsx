@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { Logo } from "../../../sources/Logo";
 import { IconSearch } from "../../../sources/IconSearch";
 import { IconCart } from "../../../sources/IconCart";
-import { mediaQueryTabletPortrait, mediaQueryMobile } from "../../../../shared/media";
+import {
+  mediaQueryTabletPortrait,
+  mediaQueryMobile,
+} from "../../../../shared/media";
 
 interface SearchType {
-  onSearch: (text: string) => void
+  onSearch: (text: string) => void;
 }
 
 export const Search = ({ onSearch }: SearchType) => {
@@ -21,7 +24,10 @@ export const Search = ({ onSearch }: SearchType) => {
         <Logo color="#fff" />
       </Link>
       <SearchBar>
-        <Input placeholder="Nhập để tìm kiếm sản phẩm" onChange={handleSearch} />
+        <Input
+          placeholder="Nhập để tìm kiếm sản phẩm"
+          onChange={handleSearch}
+        />
         <IconSearch color="#fb5533" />
       </SearchBar>
       <CartContainer>
@@ -52,7 +58,7 @@ const HeaderSearch = styled.div`
   align-items: center;
   height: 94px;
   position: relative;
-  
+
   ${mediaQueryMobile(`
     justify-content: space-around;
   `)}

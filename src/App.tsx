@@ -7,6 +7,7 @@ import { SignUpPage } from "./components/pages/SignUp";
 import { SupportPage } from "./components/pages/Support";
 import { GlobalStyle } from "./GlobalStyle";
 import { ProductDetails } from "./components/pages/ProductDetails";
+import { CartView } from "./components/pages/Cart";
 
 export const App = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ export const App = () => (
       <Route exact path="/signin" component={SignInPage} />
       <Route exact path="/support" component={SupportPage} />
       <Route path="/product/:id" component={ProductDetails} />
+      <Route exact path="/cart" component={CartView} />
       <Redirect from="*" to="/" />
     </Switch>
     <GlobalStyle />

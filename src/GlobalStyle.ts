@@ -33,10 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
   .scrollHidden {
-    overflow-x: scroll;
+   overflow-x:scroll;
+   overflow-y:hidden;
   }
   .scrollHidden::-webkit-scrollbar{
       display: none;
   }
-
 `;
